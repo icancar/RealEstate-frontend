@@ -1,0 +1,95 @@
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3">
+<div class="card" >
+    <h4 class="card-header">Register</h4>
+    <div class="card-body">
+        <form [formGroup]='regForm' (ngSubmit)='register()'>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name='name' class="form-control" formControlName="name" [ngClass]="{ 'is-invalid':name.errors?.required && submitted}"/> 
+                <div *ngIf="name.errors?.required" class="invalid-feedback">
+                    <div *ngIf="name.errors?.required">*Name is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="surname">Surname</label>
+                <input type="text"  name='surname' class="form-control" formControlName="surname" [ngClass]="{ 'is-invalid':surname.errors?.required && submitted}"/>
+                <div *ngIf="surname.errors?.required" class="invalid-feedback">
+                    <div *ngIf="surname.errors?.required">*Surname is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="usrename">Username</label>
+                <input type="text"  name='username' class="form-control" formControlName="username" [ngClass]="{ 'is-invalid':username.errors?.required && submitted}"/>
+                <div *ngIf="username.errors?.required" class="invalid-feedback">
+                    <div *ngIf="username.errors?.required">*Username is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password"  name='password' class="form-control" formControlName="password" (change)='onPasswordChange()' [ngClass]="{ 'is-invalid':(password.errors?.required || password.hasError('multiple') ||password.errors?.maxlength)&& submitted}"/>
+                <div *ngIf="password.errors?.required" class="invalid-feedback">
+                    <div *ngIf="password.errors?.required">*Password is required</div>
+                </div>
+                <div *ngIf="password.hasError('multiple')" class="invalid-feedback">
+                    <div *ngIf="password.hasError('multiple')">*Password needs to have at least one uppercase, one lowercase, one number and one special character</div>
+                </div>
+                <div *ngIf="password.errors?.maxlength" class="invalid-feedback">
+                    <div *ngIf="password.errors?.maxlength">*Password needs to be maximum 24 characters long</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="re_password">Re-enter password</label>
+                <input type="password"  name='re_password' class="form-control" formControlName="re_password" (change)='onPasswordChange()' [ngClass]="{ 'is-invalid':(re_password.errors?.required || re_password.hasError('mismatch')) && submitted}"/>
+                <div *ngIf="re_password.errors?.required" class="invalid-feedback">
+                    <div *ngIf="re_password.errors?.required">*Re-enter password is required</div>
+                </div>
+                <div *ngIf="re_password.hasError('mismatch')" class="invalid-feedback">
+                    <div *ngIf="re_password.hasError('mismatch')">*Passwords are not matching</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="picture">Profile Picture</label>
+                <br/>
+                <input type="file"  name='picture' accept="image/*" (change)="onFileChange($event)"/>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="text"  name= 'email' class="form-control" formControlName="email"  [ngClass]="{ 'is-invalid':(email.errors?.required || email.errors?.email) && submitted}"/>
+                <div *ngIf="email.errors?.required" class="invalid-feedback" >
+                    <div *ngIf="email.errors?.required">*E-mail is required</div>
+                </div>
+                <div *ngIf="email.errors?.email" class="invalid-feedback" >
+                    <div *ngIf="email.errors?.email">*E-mail not valid</div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text"  name= 'city' class="form-control" formControlName="city"  [ngClass]="{ 'is-invalid':city.errors?.required && submitted}"/>
+                <div *ngIf="city.errors?.required" class="invalid-feedback" >
+                    <div *ngIf="city.errors?.required">*City is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="country">Country</label>
+                <input type="text"  name= 'country' class="form-control" formControlName="country"  [ngClass]="{ 'is-invalid':country.errors?.required && submitted}"/>
+                <div *ngIf="country.errors?.required" class="invalid-feedback">
+                    <div *ngIf="country.errors?.required">*Country is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button  class="btn btn-primary" type="submit">
+                    Register
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<notifier-container></notifier-container>
+</div>

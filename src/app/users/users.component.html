@@ -1,1 +1,38 @@
-<p>users works!</p>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3">
+<div class="card">
+    <h4 class="card-header">Login</h4>
+    <div class="card-body">
+        <form [formGroup]='loginForm' (ngSubmit)='login()'>
+            <div class="form-group">
+            <label for="usrename">Username</label>
+                <input type="text"  name='username' class="form-control" formControlName="username" [ngClass]="{ 'is-invalid':username.errors?.required && submitted}"/>
+                <div *ngIf="username.errors?.required" class="invalid-feedback">
+                    <div *ngIf="username.errors?.required">*Username is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="usrename">Password</label>
+                    <input type="password"  name='password' class="form-control" formControlName="password" [ngClass]="{ 'is-invalid':password.errors?.required && submitted}"/>
+                    <div *ngIf="password.errors?.required" class="invalid-feedback">
+                        <div *ngIf="password.errors?.required">*Password is required</div>
+                    </div>
+                </div>
+            <div class="form-group">
+                <button  class="btn btn-primary" type="submit">
+                    Login
+                </button>
+                <a routerLink="/register" class="btn btn-link">Register</a>
+            </div>
+        </form>
+    </div>
+    <notifier-container>
+
+    </notifier-container>
+</div>
+</div>
+</div>
+</div>
+</div>
