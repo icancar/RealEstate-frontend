@@ -10,7 +10,7 @@ export class User {
     userType:string;
     accepted:boolean
 
-    constructor(name, surname, username, password, picture, email, city, country){
+    constructor(name, surname, username, password, picture, email, city, country, accepted){
         this.ime=name;
         this.prezime=surname,
         this.username=username;
@@ -20,6 +20,6 @@ export class User {
         this.city=city;
         this.country=country;
         this.userType='korisnik'
-        this.accepted=false;
+        this.accepted=accepted;
     }
 }

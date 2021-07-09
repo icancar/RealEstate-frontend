@@ -1,0 +1,31 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+.sclass{
+    width: 18em;
+    text-align: center;
+}
+
+.registration-request-card {
+    background:lightblue;
+    border-radius: 10px;
+    max-width: 250px;
+    max-height: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-table;
+    margin-bottom: 20px;
+  }
+
+  .toolbarTitle {
+      text-align: center;
+  }
+  
+
+  .button-accept{
+    background-color: #008000;
+  }
+  .button-decline{
+    background-color: red;
+    
+  }

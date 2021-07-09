@@ -1,0 +1,19 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+.sclass{
+    width: 18em;
+    text-align: center;
+}
+
+.profile-card{
+  text-align: center;
+  margin-left:auto;
+  margin-right: auto;
+}
+
+mat-card img{
+  object-fit: cover;
+  width: 10%; 
+  height: 10%;
+}

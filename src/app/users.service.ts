@@ -30,8 +30,62 @@ export class UsersService {
       city:user.city,
       country:user.country,
       userType:"korisnik",
-      accepted:false
+      accepted:user.accepted
     }
     return this.http.post(`${this.uri}/users/register`,data)
+  }
+
+  changePassword(username, oldPassword, newPassword){
+    const data={
+      username:username,
+      oldPassword:oldPassword,
+      newPassword:newPassword
+    }
+    return this.http.post(`${this.uri}/users/changePassword`, data)
+  }
+
+  getAllRegistrationRequests() {
+    return this.http.get(`${this.uri}/admin/getAllRegistrationRequests`);
+  }
+
+
+  acceptRegistrationRequest(username){
+    const data={
+      username:username
+    }
+    return this.http.post(`${this.uri}/admin/acceptRegistrationRequest`,data)
+  }
+
+  declineRegistrationRequest(username){
+    const data={
+      username:username
+    }
+    return this.http.post(`${this.uri}/admin/declineRegistrationRequest`,data)
+  }
+
+  updateUserInfo(username, name, surname, city, country) {
+    const data = {
+      username:username,
+      name:name,
+      surname:surname,
+      city:city,
+      country:country,
+    }
+    return this.http.post(`${this.uri}/users/editUserInfo`, data)
+  }
+
+  updatePhoto(username, path){
+    const data = {
+      username:username,
+      path:path
+    }
+    return this.http.post(`${this.uri}/users/updateProfilePhoto`, data)
+  }
+
+  getUserFromUsername(username){
+    const data = {
+      username:username,
+    }
+    return this.http.post(`${this.uri}/users/getUserFromUsername`, data)
   }
 }

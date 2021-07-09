@@ -1,0 +1,40 @@
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <mat-toolbar>
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+    <span>My App</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon" *ngIf='isLoggedIn' (click)='logout()'>
+      Log out
+    </button>
+</mat-toolbar>
+
+    <div style="height: 100%;">
+    <mat-sidenav-container class="background-transparent" style="height: 100%;">
+        <mat-sidenav  #drawer mode="over"  #sidenav class='sclass'>
+            <br/><br/>
+            <button  mat-button routerLink='/registrationRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Registration requests</button><br/><br/>
+            <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Estate approval requests</button><br/><br/>
+            <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert estates</button><br/><br/>
+            <button  mat-button routerLink='/insertUser' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert user</button><br/><br/>
+            <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Change password</button><br/><br/>
+            <button  mat-button routerLink='/editProfile' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Edit profile</button><br/><br/>
+            
+           
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <div class="background-transparent custom-mat-drawer-content">
+                <router-outlet></router-outlet>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
+

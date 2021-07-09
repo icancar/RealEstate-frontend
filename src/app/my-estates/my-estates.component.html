@@ -1,0 +1,54 @@
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<mat-toolbar>
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+    <span>My App</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon" *ngIf='isLoggedIn'>
+      Log out
+    </button>
+</mat-toolbar>
+
+<div style="height: 100%;">
+    <mat-sidenav-container class="background-transparent" style="height: 100%;">
+        <mat-sidenav  #drawer mode="over"  #sidenav class='sclass'>
+            <br/><br/>
+            <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Change password</button><br/><br/>
+            
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <div class="background-transparent custom-mat-drawer-content">
+                <router-outlet>
+                    <span *ngFor='let e of myEstates' (click)='details(e.idAdvertisement)' >
+                        <mat-card class="estate-card" >
+                            <mat-card-header>
+                              <mat-card-title>{{e.name}}</mat-card-title>
+                              <mat-card-subtitle>{{e.city}}, {{e.municipality}}</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                            <mat-card-content >
+                             <b> Cena:</b> {{e.price}} <br/>
+                             <b> Tip nekretnine: </b> {{e.typeOfEstate}} <br/>
+                             <span *ngIf="e.typeOfEstate=='stan'"><b>Broj soba: </b> {{e.numberOfRooms}} <br/></span>
+                             <b> Kvadratura: </b> {{e.size}} <br/>
+                             <b> Tip oglasa: </b> {{e.typeOfAdvertisement}}
+                            </mat-card-content>
+                            <mat-card-actions >
+                              <button class="btn btn-primary">INFO</button>
+                              <button mat-button>SHARE</button>
+                            </mat-card-actions>
+                          </mat-card>
+                        </span>
+                </router-outlet>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

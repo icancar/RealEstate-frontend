@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
   imagesrc:string;
   image;
   submitted:boolean=false;
-
+  picturePath:string;
   regForm:FormGroup;
 
 
@@ -87,7 +87,8 @@ export class RegisterComponent implements OnInit {
     if (this.image != undefined) { //korisnik je ubacio svoju profilnu sliku
       this.filesService.uploadProfilePhoto(this.image).subscribe((response) => {
         let path: string = response['path'];
-        let user = new User(name, surname, username, password, path,email,city,country);
+        this.picturePath="../.." + path.substring(26).replace("\\", "/").replace("\\", "/").replace("\\", "/");
+        let user = new User(name, surname, username, password,this.picturePath,email,city,country, false);
         this.userService.register(user).subscribe(res =>{
           if(res['message']=='userAdded'){
             this.notifier.notify('success', "User added")
@@ -104,8 +105,8 @@ export class RegisterComponent implements OnInit {
         })
       });
   }else { //korisnik nije ubacio profilnu sliku
-      let path="assets/users/genericProfilePhoto.jpg"
-      let user = new User(name, surname, username, password, path,email,city,country);
+      let path="../../assets/users/genericProfilePhoto.png"
+      let user = new User(name, surname, username, password, path,email,city,country, false);
         this.userService.register(user).subscribe(res =>{
           if(res['message']=='userAdded'){
             this.notifier.notify('success', "User added");

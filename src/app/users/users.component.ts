@@ -19,15 +19,18 @@ export class UsersComponent implements OnInit {
 
   loginForm:FormGroup;
   submitted:boolean
+  isLoggedIn:boolean;
   
 
   ngOnInit(): void {
-    this.notifier.notify('error', 'welcome');
     this.submitted=false;
     this.loginForm=new FormGroup({
       username: new FormControl("", Validators.required),
       password: new FormControl("", Validators.required)
     })
+    this.isLoggedIn=JSON.parse(localStorage.getItem('ulogovan'))!=null;
+
+
   }
 
   get username() {
@@ -45,7 +48,15 @@ export class UsersComponent implements OnInit {
     this.usersService.login(username, password).subscribe((user:User)=>{
       if(user){
         localStorage.setItem('ulogovan', JSON.stringify(user));
-        this.router.navigate(['home']);
+        if(user.userType=='administrator'){
+          this.router.navigate(['/welcomeAdmin'])
+        }
+        if(user.userType=='agent'){
+          this.router.navigate(['/welcomeAgent']);
+        }
+        if(user.userType=='korisnik'){
+          this.router.navigate(['welcomeUser'])
+        }
       }
       else{
         this.notifier.notify('error',"NO SUCCESS")
@@ -56,5 +67,9 @@ export class UsersComponent implements OnInit {
     }
   }
 
+  logout(){
+    localStorage.clear();
+    this.router.navigate(['/']);
+  }
   
 }

@@ -8,7 +8,32 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule} from '@angular/material/toolbar'
+import { MatIconModule} from '@angular/material/icon'
+import { MatButtonModule} from '@angular/material/button'
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { WelcomeUserComponent } from './welcome-user/welcome-user.component';
+import { WelcomeAdminComponent } from './welcome-admin/welcome-admin.component';
+import { WelcomeAgentComponent } from './welcome-agent/welcome-agent.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import {MatCardModule} from '@angular/material/card'
+import {MatRadioModule} from '@angular/material/radio'
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatSliderModule} from '@angular/material/slider';
+import { RegistrationRequestsComponent } from './registration-requests/registration-requests.component'
+import { NgImageSliderModule } from 'ng-image-slider';
+import { EstateInfoComponent } from './estate-info/estate-info.component';
+import { EstateRequestsComponent } from './estate-requests/estate-requests.component';
+import { InsertEstateComponent } from './insert-estate/insert-estate.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { UserInfoComponent } from './user-info/user-info.component';
+import { MyEstatesComponent } from './my-estates/my-estates.component';
+import { InsertUserComponent } from './insert-user/insert-user.component'
 
+ 
 
 const customNotifierOptions: NotifierOptions = {
 	position: {
@@ -57,7 +82,18 @@ const customNotifierOptions: NotifierOptions = {
     AppComponent,
     UsersComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    WelcomeUserComponent,
+    WelcomeAdminComponent,
+    WelcomeAgentComponent,
+    ChangePasswordComponent,
+    RegistrationRequestsComponent,
+    EstateInfoComponent,
+    EstateRequestsComponent,
+    InsertEstateComponent,
+    UserInfoComponent,
+    MyEstatesComponent,
+    InsertUserComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +101,20 @@ const customNotifierOptions: NotifierOptions = {
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NotifierModule.withConfig(customNotifierOptions)
+    NotifierModule.withConfig(customNotifierOptions),
+    BrowserAnimationsModule,
+	MatToolbarModule,
+	MatIconModule,
+	MatButtonModule,
+	MatSidenavModule,
+	MatCardModule,
+	MatRadioModule,
+	MatFormFieldModule,
+	MatInputModule,
+	MatSliderModule,
+	NgImageSliderModule,
+	MatSelectModule,
+	MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

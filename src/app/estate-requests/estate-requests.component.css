@@ -1,0 +1,27 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+.sclass{
+    width: 18em;
+    text-align: center;
+}
+
+.estate-card {
+  background:lightblue;
+  border-radius: 10px;
+  max-width: 350px;
+  max-height: 200px;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: inline-table;
+  margin-bottom: 20px;
+}
+
+
+.button-accept{
+    background-color: #008000;
+  }
+  .button-decline{
+    background-color: red;
+    
+  }

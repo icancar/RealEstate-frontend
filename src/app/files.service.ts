@@ -14,4 +14,14 @@ export class FilesService {
     formData.append('file', image);
     return this.http.post(`${this.uri}/upload/uploadProfilePhoto`, formData);
   }
+
+  uploadEstatePhotos(images){
+    const formData = new FormData();
+
+    for(let i = 0 ;i < images.length; i++){
+      formData.append('files', images[i]);
+    }
+
+    return this.http.post(`${this.uri}/upload/uploadEstatePhotos`, formData);
+  }
 }
