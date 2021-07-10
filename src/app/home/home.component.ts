@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
   priceSearch:number;
   isLoggedIn:boolean
   maxPriceSale:number;
+  promotedEstates:Estate[];
   maxPriceRent:number;
   ngOnInit(): void {
     this.city=false;
@@ -46,75 +47,18 @@ export class HomeComponent implements OnInit {
         }
       }
     })
+    this.estateService.getAllPromotedEstates().subscribe((e:Estate[])=>{
+      if(e){
+        this.promotedEstates=e;
+        for(let i=0;i<this.promotedEstates.length;i++){
+          let o={image:this.promotedEstates[i].gallery[0], thumbImage:this.promotedEstates[i].gallery[0], alt:'', title:this.promotedEstates[i].name};
+          this.imagesObject.push(o);
+        }
+        this.notifier.notify("success", ""+this.promotedEstates.length);
+      }
+    })
   }
-
-  imageObject: Array<object> = [{
-    image: 'assets/users/cop.jpg',
-    thumbImage: 'assets/users/cop.jpg',
-    alt: 'alt of image',
-    title: 'Slika 1'
-},{
-  image: 'assets/users/cop.jpg',
-  thumbImage: 'assets/users/cop.jpg',
-  alt: 'alt of image',
-  title: 'Slika 2'
-},{
-  image: 'assets/users/cop.jpg',
-  thumbImage: 'assets/users/cop.jpg',
-  alt: 'alt of image',
-  title: 'Slika 3'
-},{
-  image: 'assets/users/cop.jpg',
-  thumbImage: 'assets/users/cop.jpg',
-  alt: 'alt of image',
-  title: 'Slika 4'
-},{
-  image: 'assets/users/cop.jpg',
-  thumbImage: 'assets/users/cop.jpg',
-  alt: 'alt of image',
-  title: 'Slika 5'
-},{
-  image: 'assets/users/cop.jpg',
-  thumbImage: 'assets/users/cop.jpg',
-  alt: 'alt of image',
-  title: 'Slika 6'
-},{
-  image: 'assets/users/cop.jpg',
-  thumbImage: 'assets/users/cop.jpg',
-  alt: 'alt of image',
-  title: 'Slika 7'
-},{
-  image: 'assets/users/cop.jpg',
-  thumbImage: 'assets/users/cop.jpg',
-  alt: 'alt of image',
-  title: 'Slika 8 '
-},{
-  image: 'assets/users/cop.jpg',
-  thumbImage: 'assets/users/cop.jpg',
-  alt: 'alt of image',
-  title: 'Slika 9'
-},{
-  image: 'assets/users/cop.jpg',
-  thumbImage: 'assets/users/cop.jpg',
-  alt: 'alt of image',
-  title: 'Slika 10'
-},{
-  image: 'assets/users/cop.jpg',
-  thumbImage: 'assets/users/cop.jpg',
-  alt: 'alt of image',
-  title: 'Slika 11'
-},{
-  image: 'assets/users/cop.jpg',
-  thumbImage: 'assets/users/cop.jpg',
-  alt: 'alt of image',
-  title: 'Slika 12'
-},{
-  image: 'assets/users/cop.jpg',
-  thumbImage: 'assets/users/cop.jpg',
-  alt: 'alt of image',
-  title: 'Slika 13'
-},
-];
+  imagesObject:Array<Object>=[];
 
   logout(){
     localStorage.clear();

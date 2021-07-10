@@ -32,7 +32,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { MyEstatesComponent } from './my-estates/my-estates.component';
 import { InsertUserComponent } from './insert-user/insert-user.component'
-
+import { ChartsModule } from 'ng2-charts';
+import { ChartDataComponent } from './chart-data/chart-data.component';
+import { AllEstatesComponent } from './all-estates/all-estates.component';
  
 
 const customNotifierOptions: NotifierOptions = {
@@ -93,7 +95,9 @@ const customNotifierOptions: NotifierOptions = {
     InsertEstateComponent,
     UserInfoComponent,
     MyEstatesComponent,
-    InsertUserComponent
+    InsertUserComponent,
+    ChartDataComponent,
+    AllEstatesComponent
   ],
   imports: [
     BrowserModule,
@@ -114,7 +118,8 @@ const customNotifierOptions: NotifierOptions = {
 	MatSliderModule,
 	NgImageSliderModule,
 	MatSelectModule,
-	MatCheckboxModule
+	MatCheckboxModule,
+	ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,11 +9,8 @@
             close
         </mat-icon>
     </button>
-    <span>My App</span>
+    <span>Estate Data</span>
     <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
     <button mat-icon-button class="example-icon" *ngIf='isLoggedIn'>
       Log out
     </button>
@@ -26,13 +23,57 @@
             <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Change password</button><br/><br/>
             <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Estate approval requests</button><br/><br/>
             <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert estate</button><br/><br/>
+            <button  mat-button routerLink='/chartData' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Charts</button><br/><br/>
+            <button  mat-button routerLink='/allEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">View all estates</button><br/><br/>
         
         </mat-sidenav>
 
         <mat-sidenav-content>
             <div class="background-transparent custom-mat-drawer-content">
-                <router-outlet></router-outlet>
+                <router-outlet>
+                    <div class="container">
+                        <ul class="nav nav-tabs">
+                          <li class="nav-item">
+                            <button mat-button (click)="prvi()">Nekretnine/Cjenovni rang</button>
+                          </li>
+                          <li class="nav-item">
+                            <button  mat-button (click)="drugi()">Drugi chart</button>
+                          </li>
+                          <li class="nav-item">
+                            <button  mat-button (click)="treci()">Kuce/stanovi - prodaja/iznajmljivanje</button>
+                          </li>
+                        </ul>
+                    </div>
+                   <div style="display:block" *ngIf="first">
+                        <canvas baseChart
+                        [datasets]="barChartData1"
+                        [labels]="barChartLabels1"
+                        [options]="barChartOptions1"
+                        [legend]="barChartLegend1"
+                        [chartType]="barChartType1"
+                        ></canvas>
+                   </div>
+                   <div style="display:block" *ngIf="second">
+                    <canvas baseChart
+                    [datasets]="barChartData2"
+                    [labels]="barChartLabels2"
+                    [options]="barChartOptions2"
+                    [legend]="barChartLegend2"
+                    [chartType]="barChartType2"
+                    ></canvas>
+               </div>
+               <div style="display:block" *ngIf="third">
+                <canvas baseChart 
+                        [datasets]="barChartData3"
+                        [labels]="barChartLabels3"
+                        [options]="barChartOptions3"
+                        [legend]="barChartLegend3"
+                        [type]="barChartType3"
+                        ></canvas>
+           </div>
+                </router-outlet>
             </div>
         </mat-sidenav-content>
     </mat-sidenav-container>
 </div>
+<notifier-container></notifier-container>

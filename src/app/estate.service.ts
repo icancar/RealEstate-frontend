@@ -83,4 +83,25 @@ export class EstateService {
     }
     return this.http.post(`${this.uri}/estates/insertEstate`, data);
   }
+
+  getAllEstates(){
+    return this.http.get(`${this.uri}/estates/getAllEstates`);
+  }
+
+  promoteEstate(id){
+    const data={
+      id:id
+    }
+    return this.http.post(`${this.uri}/estates/promoteEstate`,data)
+  }
+  unpromoteEstate(id){
+    const data={
+      id:id
+    }
+    return this.http.post(`${this.uri}/estates/unpromoteEstate`,data)
+  }
+
+  getAllPromotedEstates(){
+    return this.http.get(`${this.uri}/estates/getAllPromotedEstates`);
+  }
 }

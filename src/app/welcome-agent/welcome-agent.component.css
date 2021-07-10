@@ -6,3 +6,11 @@
     width: 18em;
     text-align: center;
 }
+canvas{
+
+  width:800px !important;
+  height:450px !important;
+  margin-left: auto;
+  margin-right: auto;
+
+}

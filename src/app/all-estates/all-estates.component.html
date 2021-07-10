@@ -1,0 +1,78 @@
+
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<mat-toolbar style="position: sticky;">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+    <span>My App</span>
+    <span class="example-spacer"></span>
+    <button mat-button class="example-icon" *ngIf='isLoggedIn' (click)='logout()'>
+      Log out
+    </button>
+</mat-toolbar>
+
+<div style="height: 100%;">
+    <mat-sidenav-container class="background-transparent" style="height: 100%;">
+        <mat-sidenav  #drawer mode="over"  #sidenav class='sclass'>
+            <br/><br/>
+            <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Change password</button><br/><br/>
+            <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Estate approval requests</button><br/><br/>
+            <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert estate</button><br/><br/>
+            <button  mat-button routerLink='/chartData' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Charts</button><br/><br/>
+            <button  mat-button routerLink='/allEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">View all estates</button><br/><br/>
+        
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <div class="background-transparent custom-mat-drawer-content">
+                    <br/>
+
+                    <br/>
+                   <span *ngFor='let e of estates' (click)='details(e.idAdvertisement)' style="margin-left: auto; margin-right: auto;">
+                    <mat-card class="estate" >
+                        <mat-card-header>
+                          <mat-card-title>{{e.name}}</mat-card-title>
+                          <mat-card-subtitle>{{e.city}}, {{e.municipality}}</mat-card-subtitle>
+                        </mat-card-header>
+                        <img mat-card-image src="{{e.gallery[0]}}" alt="photo of estate" height="200px">
+                        <mat-card-content>
+                            <br>
+                            <br/>
+                         <b> Cena:</b> {{e.price}} <br/>
+                         <b> Tip nekretnine: </b><span *ngIf="e.typeOfEstate=='stan'">{{e.numberOfRooms}}.0</span> {{e.typeOfEstate}} <br/>
+                         <b> Kvadratura: </b> {{e.size}} <br/>
+                         <b> Tip oglasa: </b> {{e.typeOfAdvertisement}}
+                        </mat-card-content>
+                        <mat-card-actions >
+                          <button class="btn btn-primary" (click)="info(e.idAdvertisement)">INFO</button>
+                          <span *ngIf="!e.promoted && e.approved"><button mat-button (click)="promoteEstate(e.idAdvertisement)">PROMOTE</button></span>
+                          <span *ngIf="e.promoted && e.approved"><button mat-button (click)="unpromoteEstate(e.idAdvertisement)">UNPROMOTE</button></span>
+                        </mat-card-actions>
+                    </mat-card>
+                    </span>
+                      
+            
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+               
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
+<notifier-container></notifier-container>
