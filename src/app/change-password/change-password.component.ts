@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
+import { User } from '../models/user';
 import { UsersService } from '../users.service';
 
 @Component({
@@ -16,9 +17,16 @@ export class ChangePasswordComponent implements OnInit {
   changePasswordForm:FormGroup
   isLoggedIn:boolean
   submitted:boolean
+  user:User;
   ngOnInit(): void {
     this.submitted=false;
     this.isLoggedIn=JSON.parse(localStorage.getItem('ulogovan'))!=null; 
+    if(this.isLoggedIn){
+      this.user=JSON.parse(localStorage.getItem('ulogovan'));
+    }else {
+      localStorage.clear();
+      this.router.navigate(['/']);
+    }
     this.changePasswordForm=new FormGroup({
       old_password: new FormControl("", Validators.required),
       new_password: new FormControl("", [Validators.required, Validators.maxLength(24)]),
@@ -27,8 +35,8 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   logout(){
-    this.router.navigate(['/']);
     localStorage.clear();
+    this.router.navigate(['/']);
   }
 
   get old_password(){

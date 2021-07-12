@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
 import { EstateService } from '../estate.service';
 import { Estate } from '../models/estate';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-home',
@@ -14,14 +15,15 @@ export class HomeComponent implements OnInit {
   constructor(private router:Router, private notifier:NotifierService, private estateService:EstateService) { }
 
   searchType:string
-  citySearch:string
+  citySearch:string="";
   city:boolean
   price:boolean
-  minPriceSearch:number;
+  minPriceSearch:number=0;
   maxPriceSearch:number;
   allApprovedEstates:Estate[];
   priceSearch:number;
   isLoggedIn:boolean
+  user:User;
   maxPriceSale:number;
   promotedEstates:Estate[];
   maxPriceRent:number;
@@ -29,6 +31,18 @@ export class HomeComponent implements OnInit {
     this.city=false;
     this.price=false;
     this.isLoggedIn=JSON.parse(localStorage.getItem('ulogovan'))!=null; 
+    if(this.isLoggedIn){
+      this.user=JSON.parse(localStorage.getItem('ulogovan'));
+      if(this.user.userType=='administrator'){
+        this.router.navigate(['/welcomeAdmin']);
+      }
+      if(this.user.userType=='agent'){
+        this.router.navigate(['/welcomeAgent']);
+      }
+      if(this.user.userType=='korisnik'){
+        this.router.navigate(['/welcomeUser']);
+      }
+    }
     this.estateService.getAllApprovedEstates().subscribe((e:Estate[])=>{
       if(e){
         this.maxPriceSale=0;
@@ -54,7 +68,6 @@ export class HomeComponent implements OnInit {
           let o={image:this.promotedEstates[i].gallery[0], thumbImage:this.promotedEstates[i].gallery[0], alt:'', title:this.promotedEstates[i].name};
           this.imagesObject.push(o);
         }
-        this.notifier.notify("success", ""+this.promotedEstates.length);
       }
     })
   }

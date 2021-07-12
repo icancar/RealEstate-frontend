@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
 import { EstateService } from '../estate.service';
 import { FilesService } from '../files.service';
@@ -13,7 +14,7 @@ import { User } from '../models/user';
 })
 export class InsertEstateComponent implements OnInit {
 
-  constructor(private notifier:NotifierService, private fileService:FilesService, private estateService:EstateService) { }
+  constructor(private router:Router,private notifier:NotifierService, private fileService:FilesService, private estateService:EstateService) { }
 
 
   estateForm:FormGroup;
@@ -21,14 +22,15 @@ export class InsertEstateComponent implements OnInit {
   photosFile: File[];
   numberOfFloors1:string;
   photos:string[]=[];
-  loggedInUser:User;
-  ownerUsername:string;
-  approvedBoolean:boolean;
+  ownerUsername:string="";
+  approvedBoolean:boolean=false;
+  user:User;
   furnitureBoolean:boolean;
+  isLoggedIn:boolean;
   ngOnInit(): void {
-    this.notifier.notify('success', "WELCOME");
+    this.isLoggedIn=JSON.parse(localStorage.getItem('ulogovan'))!=null;
     this.submitted=false;
-    this.loggedInUser=JSON.parse(localStorage.getItem('ulogovan'));
+    this.user=JSON.parse(localStorage.getItem('ulogovan'));
     this.estateForm=new FormGroup({
       name: new FormControl("",Validators.required),
       municipality: new FormControl("", Validators.required),
@@ -88,30 +90,30 @@ export class InsertEstateComponent implements OnInit {
   }
 
   insert(){
-    this.notifier.notify("warning", this.floorNumber.value)
     this.submitted=true;
     if(this.photos.length>=0 && this.photos.length<3){
       this.notifier.notify('warning', "Potrebno je dodati vise od 3 fotografije nekretnine")
     }else {
       if(this.estateForm.valid){ //sve je ok sa parametrima;
         this.fileService.uploadEstatePhotos(this.photosFile).subscribe((response)=>{
-          if(response) this.notifier.notify("success", "Slike uploadovane!");
-          if(this.loggedInUser.userType=='agent'){
+          if(response){ this.notifier.notify("success", "Slike uploadovane!");
+          if(this.user.userType=='agent'){
             this.ownerUsername="agencija";
           }else {
-            this.ownerUsername=this.loggedInUser.username;
+            this.ownerUsername=this.user.username;
           }
           if(this.furniture.value=="yes"){
             this.furnitureBoolean=true;
           }else if(this.furniture.value=="no"){
             this.furnitureBoolean=false;
           }
-          if(this.loggedInUser.userType=='administrator' || this.loggedInUser.userType=='agent'){
+          if(this.user.userType=='administrator' || this.user.userType=='agent'){
             this.approvedBoolean=true;
-          }else if(this.loggedInUser.userType=='korisnik'){
+          }else if(this.user.userType=='korisnik'){
             this.approvedBoolean=false;
           }
           let estate=new Estate(this.name.value,this.municipality.value,this.city.value,this.street.value,this.ownerUsername, this.streetNumber.value, this.typeOfAdvertisement.value,this.size.value, this.price.value,this.typeOfEstate.value,this.numberOfFloors.value,this.floorNumber.value,this.photos,this.furnitureBoolean,this.numberOfRooms.value,this.approvedBoolean );
+          this.notifier.notify("success", estate.toString());
           this.estateService.insertEstate(estate).subscribe(res =>{
             if(res['message']=='estateAdded'){
               this.notifier.notify('success', "Estate added")
@@ -119,12 +121,17 @@ export class InsertEstateComponent implements OnInit {
             else {
               this.notifier.notify('error', res['message']);
             }
-          })
+          })}
         });
       }
     }
   
 
+  }
+
+  logout(){
+    localStorage.clear();
+    this.router.navigate['/'];
   }
 
 

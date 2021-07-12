@@ -88,4 +88,15 @@ export class UsersService {
     }
     return this.http.post(`${this.uri}/users/getUserFromUsername`, data)
   }
+
+  getAllUsers(){
+    return this.http.get(`${this.uri}/users/getAllUsers`);
+  }
+  
+  deleteUser(username){
+    const data={
+      username:username
+    }
+    return this.http.post(`${this.uri}/users/deleteUser`, data);
+  }
 }

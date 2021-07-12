@@ -9,15 +9,19 @@
             close
         </mat-icon>
     </button>
-    <span>My App</span>
+    <span>Registration</span>
     <span class="example-spacer"></span>
+
 </mat-toolbar>
+
 
 <div style="height: 100%;">
     <mat-sidenav-container class="background-transparent" style="height: 100%;">
         <mat-sidenav  #drawer mode="over"  #sidenav class='sclass'>
             <br/><br/>
             <button  mat-button routerLink='/' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Home</button><br/><br/>
+            <button  mat-button routerLink='/login' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Log in</button><br/><br/>
+            
         </mat-sidenav>
 
         <mat-sidenav-content>

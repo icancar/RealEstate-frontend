@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
 import { EstateService } from '../estate.service';
 import { Estate } from '../models/estate';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-estate-requests',
@@ -14,9 +15,18 @@ export class EstateRequestsComponent implements OnInit {
   constructor(private estateService:EstateService, private router:Router, private notifier:NotifierService) { }
 
   isLoggedIn:boolean
+  user:User;
   allRequestedEstates: Estate[];
   ngOnInit(): void {
-    this.isLoggedIn=JSON.parse(localStorage.getItem('ulogovan'))!=null; 
+    this.isLoggedIn=JSON.parse(localStorage.getItem('ulogovan'))!=null;
+    if(!this.isLoggedIn){
+      this.logout();
+    }else {
+      this.user=JSON.parse(localStorage.getItem('ulogovan'));
+      if(this.user.userType=='korisnik'){
+        this.logout();
+      }
+    }
     this.estateService.getAllEstatesRequest().subscribe((e:Estate[])=>{
       if(e){
         this.allRequestedEstates=e;
@@ -26,6 +36,11 @@ export class EstateRequestsComponent implements OnInit {
 
   details(id){
     this.router.navigate(['/estateInfo/'+id]);
+  }
+
+  logout(){
+    localStorage.clear();
+    this.router.navigate['/'];
   }
   
   acceptEstateRequest(id){

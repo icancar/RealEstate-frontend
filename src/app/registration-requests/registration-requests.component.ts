@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
 import { User } from '../models/user';
 import { UsersService } from '../users.service';
@@ -10,7 +11,7 @@ import { UsersService } from '../users.service';
 })
 export class RegistrationRequestsComponent implements OnInit {
 
-  constructor(private userService:UsersService, private notifier:NotifierService) { }
+  constructor(private router:Router,private userService:UsersService, private notifier:NotifierService) { }
 
   isLoggedIn:boolean
   registrationRequestUsers: User[];
@@ -22,6 +23,10 @@ export class RegistrationRequestsComponent implements OnInit {
       }
     })
 
+  }
+  logout(){
+    localStorage.clear();
+    this.router.navigate(['/']);
   }
 
   acceptRegistrationRequest(username){

@@ -39,8 +39,6 @@ export class Estate {
         this.views=0;
         this.approved=approved;
         this.promoted=false;
-            
-
     }
 
 

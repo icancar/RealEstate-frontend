@@ -9,12 +9,9 @@
             close
         </mat-icon>
     </button>
-    <span>My App</span>
+    <span>Estate approval requests</span>
     <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" *ngIf='isLoggedIn'>
+    <button mat-icon-button class="example-icon" *ngIf='isLoggedIn' (click)='logout()'>
       Log out
     </button>
 </mat-toolbar>
@@ -23,21 +20,39 @@
     <mat-sidenav-container class="background-transparent" style="height: 100%;">
         <mat-sidenav  #drawer mode="over"  #sidenav class='sclass'>
             <br/><br/>
-            <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Change password</button><br/><br/>
-            
+            <button  mat-button routerLink='/' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Home</button><br/><br/>
+            <span *ngIf="user.userType=='administrator'">
+                <button  mat-button routerLink='/registrationRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Registration requests</button><br/><br/>
+                <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Estate approval requests</button><br/><br/>
+                <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert estates</button><br/><br/>
+                <button  mat-button routerLink='/insertUser' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert user</button><br/><br/>
+                <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Change password</button><br/><br/>
+                <button  mat-button routerLink='/editProfile' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Edit profile</button><br/><br/>     
+                <button  mat-button routerLink='/allUsers' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">View all users</button><br/><br/>     
+                <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">My estates</button><br/><br/>
+        
+            </span>
+            <span *ngIf="user.userType=='agent'">
+                <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Change password</button><br/><br/>
+            <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Estate approval requests</button><br/><br/>
+            <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert estate</button><br/><br/>
+            <button  mat-button routerLink='/allEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">View all estates</button><br/><br/>
+            <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">My estates</button><br/><br/>
+        
+            </span>
         </mat-sidenav>
 
         <mat-sidenav-content>
             <br/>
             <div class="background-transparent custom-mat-drawer-content">
                 <router-outlet>
-                    <span *ngFor='let e of allRequestedEstates' (click)='details(e.idAdvertisement)'>
+                    <span *ngFor='let e of allRequestedEstates'>
                         <mat-card class="estate-card" >
                             <mat-card-header>
                               <mat-card-title>{{e.name}}</mat-card-title>
                               <mat-card-subtitle>{{e.city}}, {{e.municipality}}</mat-card-subtitle>
                             </mat-card-header>
-                            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                            <img mat-card-image src="{{e.gallery[0]}}" alt="photo of estate" height="200px">
                             <mat-card-content >
                              <b> Cena:</b> {{e.price}} <br/>
                              <b> Tip nekretnine: </b> {{e.typeOfEstate}} <br/>

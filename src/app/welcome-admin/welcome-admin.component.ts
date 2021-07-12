@@ -68,15 +68,15 @@ export class WelcomeAdminComponent implements OnInit {
     scaleShowVerticalLines:false,
     responsive:true,
   };
-  public barChartLabels2 = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+  public barChartLabels2 = [];
   public barChartType2='bar';
   public barChartLegend2 = true;
   public barChartData2 = [
     {
-      data: [6, 5, 8, 8, 5, 5, 4], label:"Series D", backgroundColor:"blue"
+      data: [], label:"Stan", backgroundColor:"blue"
     },
     {
-      data:[2, 4, 4, 1, 8, 2, 9], label:"Series C", backgroundColor: "red"
+      data:[], label:"Kuca", backgroundColor: "red"
     }
   ];
 
@@ -126,7 +126,9 @@ export class WelcomeAdminComponent implements OnInit {
         this.cnt12=this.prebrojNekretnineUCjenovnomRanguKuce(100000,125000);
         this.cnt13=this.prebrojNekretnineUCjenovnomRanguKuce(125000,150000);
         this.cnt14=this.prebrojNekretnineUCjenovnomRanguKuce(150000,999999999999);
-        console.log(this.cnt1, this.cnt2,this.cnt3, this.cnt4, this.cnt5, this.cnt6, this.cnt7, this.cnt8, this.cnt9, this.cnt10, this.cnt11,this.cnt12, this.cnt13, this.cnt14);
+        this.gradovi();
+        this.prebrojPoGradovima();
+        this.popuniDrugi();
         this.newDataPointChart1([this.cnt1, this.cnt8],['0-25000']);
         this.newDataPointChart1([this.cnt2, this.cnt9],['25000-50000']);
         this.newDataPointChart1([this.cnt3, this.cnt10],['50000-75000']);
@@ -218,10 +220,62 @@ export class WelcomeAdminComponent implements OnInit {
 
     this.barChartLabels3 = [...this.barChartLabels3, label];
   }
+
+  newDataPointChart2(dataArr = [100, 100, 100], label) {
+    this.barChartData2.forEach((dataset, index) => {
+      this.barChartData2[index] = Object.assign({}, this.barChartData2[index], {
+        data: [...this.barChartData2[index].data, dataArr[index]]
+      });
+    });
+
+    this.barChartLabels2 = [...this.barChartLabels2, label];
+  }
   
 
   logout(){
     localStorage.clear();
     this.router.navigate(['/']);
+  }
+  
+  nizGradova:Array<string>=[];
+  gradovi(){
+    console.log("Duzina:"+this.estates.length);
+    for(let i=0;i<this.estates.length;i++){
+      let cnt=0;
+      let grad=this.estates[i].city;
+      console.log(grad);
+      if(this.nizGradova.length==0){
+        this.nizGradova.push(grad);
+      }
+      if(this.nizGradova.indexOf(grad)== -1){
+        this.nizGradova.push(grad);
+      }
+    }
+  }
+  kuceGradovi:Array<number>=[];
+  stanoviGradovi:Array<number>=[];
+  prebrojPoGradovima(){
+    for(let i=0;i<this.nizGradova.length;i++){
+      let grad=this.nizGradova[i];
+      let houseCnt=0;
+      let stanCnt=0;
+      for(let a=0;a<this.estates.length;a++){
+        if(this.estates[a].city==grad && this.estates[a].typeOfEstate=='kuca'){
+          houseCnt++;
+        }
+        if(this.estates[a].city==grad && this.estates[a].typeOfEstate=='stan'){
+          stanCnt++;
+        }
+      }
+      this.kuceGradovi.push(houseCnt);
+      this.stanoviGradovi.push(stanCnt);
+    }
+  }
+  
+
+  popuniDrugi(){
+    for(let i=0;i<this.kuceGradovi.length;i++){
+      this.newDataPointChart2([this.stanoviGradovi[i],this.kuceGradovi[i]],[this.nizGradova[i]]);
+    }
   }
 }

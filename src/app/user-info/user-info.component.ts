@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl} from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
 import { FilesService } from '../files.service';
 import { User } from '../models/user';
@@ -13,7 +13,7 @@ import { UsersService } from '../users.service';
 })
 export class UserInfoComponent implements OnInit {
 
-  constructor(private filesService:FilesService,private router:Router, private notifier:NotifierService, private userService:UsersService) { }
+  constructor(private route:ActivatedRoute,private filesService:FilesService,private router:Router, private notifier:NotifierService, private userService:UsersService) { }
 
 
   imagesrc:string;
@@ -21,16 +21,23 @@ export class UserInfoComponent implements OnInit {
   isLoggedIn:boolean;
   user:User;
   u1:User;
+  username:string;
   pictureSource:string;
   userForm:FormGroup=null;
   ngOnInit(): void {
     this.isLoggedIn=JSON.parse(localStorage.getItem('ulogovan'))!=null;
     if(!this.isLoggedIn){
+      localStorage.clear();
       this.router.navigate(['/']);
 
     }else {
-    this.u1=JSON.parse(localStorage.getItem('ulogovan'));
-    this.userService.getUserFromUsername(this.u1.username).subscribe((u:User)=>{
+    this.username=this.route.snapshot.paramMap.get('username');
+    if(this.username!=null){this.notifier.notify('success', ""+this.username);
+  }
+    else {this.u1=JSON.parse(localStorage.getItem('ulogovan'));
+    this.username=this.u1.username;
+  }
+    this.userService.getUserFromUsername(this.username).subscribe((u:User)=>{
         this.user=u;
         this.pictureSource=this.user.picture;
         this.userForm=new FormGroup({

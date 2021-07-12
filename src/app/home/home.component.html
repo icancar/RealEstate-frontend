@@ -9,7 +9,7 @@
             close
         </mat-icon>
     </button>
-    <span>My App</span>
+    <span>Welcome, guest</span>
     <span class="example-spacer"></span>
     <button mat-button class="example-icon" *ngIf='!isLoggedIn' (click)='register()'>
         Register
@@ -68,7 +68,7 @@
 
 
                     <br/>
-                   <span *ngFor='let e of allApprovedEstates' (click)='details(e.idAdvertisement)'>
+                   <span *ngFor='let e of allApprovedEstates'>
                     <mat-card class="estate" >
                         <mat-card-header>
                           <mat-card-title>{{e.name}}</mat-card-title>
@@ -85,8 +85,7 @@
                          
                         </mat-card-content>
                         <mat-card-actions >
-                          <button class="btn btn-primary">INFO</button>
-                          <button mat-button>SHARE</button>
+        
                         </mat-card-actions>
                     </mat-card>
                     </span>

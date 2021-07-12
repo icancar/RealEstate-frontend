@@ -69,7 +69,7 @@ export class EstateService {
       ownerUsername:estate.ownerUsername,
       typeOfAdvertisement:estate.typeOfAdvertisement,
       price:estate.price,
-      idAdvertisement:5,
+      idAdvertisement:0,
       size:estate.size,
       typeOfEstate:estate.typeOfEstate,
       numberOfFloors:estate.numberOfFloors,
@@ -103,5 +103,40 @@ export class EstateService {
 
   getAllPromotedEstates(){
     return this.http.get(`${this.uri}/estates/getAllPromotedEstates`);
+  }
+
+  getEstateViaId(id){
+    const data={
+      id:id
+    }
+    return this.http.post(`${this.uri}/estates/getEstateViaId`, data);
+  }
+
+  updateEstate(idAdvertisement, name, municipality,city, street, streetNumber,typeOfAdvertisement, price, size, typeOfEstate, numberOfFloors, floorNumber, furniture, numberOfRooms ){
+    const data={
+      idAdvertisement:idAdvertisement,
+      name:name,
+      municipality:municipality,
+      city:city,
+      street:street,
+      streetNumber:streetNumber,
+      typeOfAdvertisement:typeOfAdvertisement,
+      price:price,
+      size:size,
+      typeOfEstate:typeOfEstate,
+      numberOfFloors:numberOfFloors,
+      floorNumber:floorNumber,
+      furniture:furniture,
+      numberOfRooms:numberOfRooms
+    }
+    return this.http.post(`${this.uri}/estates/updateEstate`, data);
+  }
+
+  updateEstatePhotos(idAdvertisement, gallery){
+    const data={
+      idAdvertisement:idAdvertisement,
+      gallery:gallery
+    }
+    return this.http.post(`${this.uri}/estates/updateEstatePhotos`, data);
   }
 }

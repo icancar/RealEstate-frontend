@@ -15,11 +15,15 @@ export class MyEstatesComponent implements OnInit {
   isLoggedIn:boolean;
   myEstates:Estate[];
   user:User;
+  username:string;
   ngOnInit(): void {
     this.isLoggedIn=JSON.parse(localStorage.getItem("ulogovan"))!=null;
     if(this.isLoggedIn){
       this.user=JSON.parse(localStorage.getItem('ulogovan'));
-      this.estateService.getAllEstatesForUser(this.user.username).subscribe((e:Estate[])=>{
+      if(this.user.userType=='agent'){
+        this.username='agencija'
+      }else this.username=this.user.username;
+      this.estateService.getAllEstatesForUser(this.username).subscribe((e:Estate[])=>{
         if(e){
           this.myEstates=e;
         }
@@ -28,6 +32,20 @@ export class MyEstatesComponent implements OnInit {
     }else {
       this.router.navigate(['/']);
     }
+  }
+
+    details(id){
+      this.router.navigate(['/estateInfo/'+id]);
+    }
+  
+
+  logout(){
+    localStorage.clear();
+    this.router.navigate['/'];
+  }
+
+  edit(id){
+    this.router.navigate(["/editEstateInfo/"+id]);
   }
 
 }

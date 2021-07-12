@@ -91,7 +91,7 @@ export class RegisterComponent implements OnInit {
         let user = new User(name, surname, username, password,this.picturePath,email,city,country, false);
         this.userService.register(user).subscribe(res =>{
           if(res['message']=='userAdded'){
-            this.notifier.notify('success', "User added")
+            this.notifier.notify('success', "Registration request sent!")
           }
           else if(res['message']=='usernameExists'){
             this.notifier.notify('warning', "Username already exists")
@@ -109,7 +109,7 @@ export class RegisterComponent implements OnInit {
       let user = new User(name, surname, username, password, path,email,city,country, false);
         this.userService.register(user).subscribe(res =>{
           if(res['message']=='userAdded'){
-            this.notifier.notify('success', "User added");
+            this.notifier.notify('success', "Registration request sent!");
           }
           else if(res['message']=='usernameExists'){
             this.notifier.notify('warning', "Username already exists");

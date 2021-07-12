@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AllEstatesComponent } from './all-estates/all-estates.component';
+import { AllUsersComponent } from './all-users/all-users.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ChartDataComponent } from './chart-data/chart-data.component';
+import { EditEstateInfoComponent } from './edit-estate-info/edit-estate-info.component';
 import { EstateInfoComponent } from './estate-info/estate-info.component';
 import { EstateRequestsComponent } from './estate-requests/estate-requests.component';
 import { HomeComponent } from './home/home.component';
@@ -33,7 +35,10 @@ const routes: Routes = [
   {path: "myEstates", component:MyEstatesComponent},
   {path: "insertUser", component:InsertUserComponent},
   {path: "chartData", component:ChartDataComponent},
-  {path: "allEstates", component:AllEstatesComponent}
+  {path: "allEstates", component:AllEstatesComponent},
+  {path: "allUsers", component:AllUsersComponent},
+  {path: "editProfile/:username", component:UserInfoComponent},
+  {path: "editEstateInfo/:id", component:EditEstateInfoComponent}
 ];
 
 @NgModule({

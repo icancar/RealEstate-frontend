@@ -1,8 +1,45 @@
 .example-spacer {
-    flex: 1 1 auto;
-  }
-
+  flex: 1 1 auto;
+}
 .sclass{
-    width: 18em;
-    text-align: center;
+  width: 18em;
+  text-align: center;
+}
+.content > mat-card {
+width: 200px;
+}
+
+.estate {
+background:lightblue;
+border-radius: 10px;
+width: 300px;
+height: 200px;
+margin-left: 10px;
+margin-right: 10px;
+display: inline-table;
+margin-bottom: 20px;
+margin:15px;
+font-family:Arial, Helvetica, sans-serif;
+font-style: oblique;
+}
+
+.search-card{
+font-family:Arial, Helvetica, sans-serif;
+font-style: oblique;
+max-width: 400px;
+max-height: 300px;
+text-align: center;
+margin-left:auto;
+margin-right: auto;
+}
+
+.example-margin {
+margin: 0 10px;
+}
+.form-input-price{
+max-width: 100px;
+}
+
+estate-header-image {
+background-size: cover;
 }

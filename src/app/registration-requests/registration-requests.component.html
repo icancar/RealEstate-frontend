@@ -11,14 +11,8 @@
     </button>
     <span>Registration requests</span>
     <span class="example-spacer"></span>
-    <button mat-button class="example-icon" *ngIf='!isLoggedIn' (click)='register()'>
-        Register
-      </button>
-    <button mat-button class="example-icon" *ngIf='isLoggedIn' (click)='logout()'>
-      Log out
-    </button>
-    <button mat-button class="example-icon" *ngIf='!isLoggedIn' (click)='login()'>
-        Log in
+    <button mat-button class="example-icon" (click)='logout()' *ngIf='isLoggedIn'>
+        Logout
       </button>
 </mat-toolbar>
 
@@ -26,7 +20,15 @@
     <mat-sidenav-container class="background-transparent" style="height: 100%;">
         <mat-sidenav  #drawer mode="over"  #sidenav class='sclass'>
             <br/><br/>
-            <button  mat-button routerLink='/about' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">About</button><br/><br/>
+            <button  mat-button routerLink='/welcomeAdmin' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Home</button><br/><br/>
+            <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Estate approval requests</button><br/><br/>
+            <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert estates</button><br/><br/>
+            <button  mat-button routerLink='/insertUser' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert user</button><br/><br/>
+            <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Change password</button><br/><br/>
+            <button  mat-button routerLink='/editProfile' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Edit profile</button><br/><br/>     
+            <button  mat-button routerLink='/allUsers' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">View all users</button><br/><br/>     
+            <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">My estates</button><br/><br/>
+         
         </mat-sidenav>
 
         <mat-sidenav-content>

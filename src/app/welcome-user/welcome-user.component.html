@@ -9,12 +9,9 @@
             close
         </mat-icon>
     </button>
-    <span>My App</span>
+    <span>Welcome, user</span>
     <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" *ngIf='isLoggedIn'>
+    <button mat-icon-button class="example-icon" *ngIf='isLoggedIn' (click)='logout()'>
       Log out
     </button>
 </mat-toolbar>
@@ -31,7 +28,69 @@
 
         <mat-sidenav-content>
             <div class="background-transparent custom-mat-drawer-content">
-                <router-outlet></router-outlet>
+                <router-outlet>
+
+                    <div class="background-transparent custom-mat-drawer-content">
+                        <div>
+                          <ng-image-slider [images]="imagesObject" #nav infinite='true' [autoSlide]='{interval: 2, stopOnHover: true}'></ng-image-slider>
+                        </div>
+                              <br/>
+                              <mat-card class='search-card'>
+                                  <mat-card-header>
+                                      <mat-card-title>Pretraga nekretnina</mat-card-title>
+                                  </mat-card-header>
+                                  <mat-card-content>
+                                      
+                                      <br/>
+                                          <section>
+                                              <mat-checkbox class="example-margin" [(ngModel)]="city">Po gradu</mat-checkbox>
+                                              <mat-checkbox class="example-margin" [(ngModel)]="price">Po ceni</mat-checkbox>
+                                              <br/><br/>
+                                              <div *ngIf='city'>
+                                                  <b> Grad:</b> <input type="text" class="form-input" name="citySearch" [(ngModel)]='citySearch'>
+                                              </div>
+                                              
+                                              <div *ngIf="price">
+                                                  <br/>
+                                                 <b> Min:</b> <input type="number" class="form-input-price" name="minPriceSearch" [(ngModel)]='minPriceSearch'>
+                                                  <b>Max:</b> <input type="number" class="form-input-price" name="maxPriceSearch" [(ngModel)]='maxPriceSearch'>
+                                              </div>
+                                              <br/>
+                                              <mat-card-actions>
+                                              <div>
+                                                  <button class="btn btn-primary" (click)='search()'> Pretraga </button>
+                                              </div>
+                                          </mat-card-actions>
+                                      </section>
+                                          
+                                  </mat-card-content>
+                              </mat-card>
+          
+          
+                              <br/>
+                             <span *ngFor='let e of allApprovedEstates' (click)='details(e.idAdvertisement)'>
+                              <mat-card class="estate" >
+                                  <mat-card-header>
+                                    <mat-card-title>{{e.name}}</mat-card-title>
+                                    <mat-card-subtitle>{{e.city}}, {{e.municipality}}</mat-card-subtitle>
+                                  </mat-card-header>
+                                  <img mat-card-image src="{{e.gallery[0]}}" alt="photo of estate" height="200px">
+                                  <mat-card-content>
+                                      <br>
+                                      <br/>
+                                   <b> Cena:</b> {{e.price}} <br/>
+                                   <b> Tip nekretnine: </b><span *ngIf="e.typeOfEstate=='stan'">{{e.numberOfRooms}}.0</span> {{e.typeOfEstate}} <br/>
+                                   <b> Kvadratura: </b> {{e.size}} <br/>
+                                   <b> Tip oglasa: </b> {{e.typeOfAdvertisement}}
+                                   
+                                  </mat-card-content>
+                                  <mat-card-actions >
+                                    <button class="btn btn-primary" (click)="details(e.idAdvertisement)">INFO</button>
+                                  </mat-card-actions>
+                              </mat-card>
+                              </span>
+                    </div>
+                </router-outlet>
             </div>
         </mat-sidenav-content>
     </mat-sidenav-container>

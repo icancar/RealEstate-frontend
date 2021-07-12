@@ -20,11 +20,12 @@
     <mat-sidenav-container class="background-transparent" style="height: 100%;">
         <mat-sidenav  #drawer mode="over"  #sidenav class='sclass'>
             <br/><br/>
+            <button  mat-button routerLink='/welcomeAgent' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Home</button><br/><br/>
             <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Change password</button><br/><br/>
             <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Estate approval requests</button><br/><br/>
             <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert estate</button><br/><br/>
-            <button  mat-button routerLink='/chartData' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Charts</button><br/><br/>
             <button  mat-button routerLink='/allEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">View all estates</button><br/><br/>
+            <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">My estates</button><br/><br/>
         
         </mat-sidenav>
 
@@ -37,7 +38,7 @@
                             <button mat-button (click)="prvi()">Nekretnine/Cjenovni rang</button>
                           </li>
                           <li class="nav-item">
-                            <button  mat-button (click)="drugi()">Drugi chart</button>
+                            <button  mat-button (click)="drugi()">Broj nekretnina po gradovima</button>
                           </li>
                           <li class="nav-item">
                             <button  mat-button (click)="treci()">Kuce/stanovi - prodaja/iznajmljivanje</button>

@@ -24,12 +24,13 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.submitted=false;
+    localStorage.clear();
     this.loginForm=new FormGroup({
       username: new FormControl("", Validators.required),
       password: new FormControl("", Validators.required)
     })
     this.isLoggedIn=JSON.parse(localStorage.getItem('ulogovan'))!=null;
-
+    
 
   }
 

@@ -11,6 +11,9 @@
     </button>
     <span>Insert estate</span>
     <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon" *ngIf='isLoggedIn' (click)='logout()'>
+        Log out
+      </button>
 </mat-toolbar>
 
 <div style="height: 100%;">
@@ -18,7 +21,32 @@
         <mat-sidenav  #drawer mode="over"  #sidenav class='sclass'>
             <br/><br/>
             <button  mat-button routerLink='/' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Home</button><br/><br/>
-        </mat-sidenav>
+            <span *ngIf="user.userType=='administrator'">
+                <button  mat-button routerLink='/registrationRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Registration requests</button><br/><br/>
+                <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Estate approval requests</button><br/><br/>
+                <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert estates</button><br/><br/>
+                <button  mat-button routerLink='/insertUser' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert user</button><br/><br/>
+                <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Change password</button><br/><br/>
+                <button  mat-button routerLink='/editProfile' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Edit profile</button><br/><br/>     
+                <button  mat-button routerLink='/allUsers' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">View all users</button><br/><br/>     
+                <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">My estates</button><br/><br/>
+        
+            </span>
+            <span *ngIf="user.userType=='agent'">
+                <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Change password</button><br/><br/>
+            <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Estate approval requests</button><br/><br/>
+            <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert estate</button><br/><br/>
+            <button  mat-button routerLink='/chartData' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Charts</button><br/><br/>
+            <button  mat-button routerLink='/allEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">View all estates</button><br/><br/>
+            <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">My estates</button><br/><br/>
+        
+            </span>
+            <span *ngIf="user.userType=='korisnik'">
+                <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Change password</button><br/><br/>
+            <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">My estates</button><br/><br/>
+            <button  mat-button routerLink='/editProfile' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Edit profile</button><br/><br/>
+       
+            </span> </mat-sidenav>
 
         <mat-sidenav-content>
             <div class="background-transparent custom-mat-drawer-content">
@@ -111,6 +139,14 @@
                                     <mat-option value="2">2</mat-option>
                                     <mat-option value="3">3</mat-option>
                                     <mat-option value="4">4</mat-option>
+                                    <mat-option value='5'>5</mat-option>
+                                    <mat-option value="6">6</mat-option>
+                                    <mat-option value="7">7</mat-option>
+                                    <mat-option value="8">8</mat-option>
+                                    <mat-option value='9'>9</mat-option>
+                                    <mat-option value="10">10</mat-option>
+                                    <mat-option value="11">11</mat-option>
+                                    <mat-option value="12">12</mat-option>
                                 </mat-select>
                                 
                             </div>
@@ -121,6 +157,14 @@
                                     <mat-option value="2">2</mat-option>
                                     <mat-option value="3">3</mat-option>
                                     <mat-option value="4">4</mat-option>
+                                    <mat-option value='5'>5</mat-option>
+                                    <mat-option value="6">6</mat-option>
+                                    <mat-option value="7">7</mat-option>
+                                    <mat-option value="8">8</mat-option>
+                                    <mat-option value='9'>9</mat-option>
+                                    <mat-option value="10">10</mat-option>
+                                    <mat-option value="11">11</mat-option>
+                                    <mat-option value="12">12</mat-option>
                                 </mat-select>
                                 
                             </div>

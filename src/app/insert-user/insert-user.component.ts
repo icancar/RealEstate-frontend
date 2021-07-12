@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
 import { StringifyOptions } from 'querystring';
 import { FilesService } from '../files.service';
@@ -13,7 +14,7 @@ import { UsersService } from '../users.service';
 })
 export class InsertUserComponent implements OnInit {
 
-  constructor(private filesService:FilesService, private userService:UsersService, private notifier:NotifierService) {
+  constructor(private router:Router,private filesService:FilesService, private userService:UsersService, private notifier:NotifierService) {
     this.notifier=notifier;
    }
 
@@ -24,8 +25,9 @@ export class InsertUserComponent implements OnInit {
   picturePath:string;
   regForm:FormGroup;
 
-
+  isLoggedIn:boolean;
   ngOnInit(): void {
+    this.isLoggedIn=JSON.parse(localStorage.getItem('ulogovan'))!=null;
     this.submitted=false;
     this.regForm=new FormGroup({
       name: new FormControl("",[Validators.minLength(1), Validators.required]),
@@ -39,6 +41,8 @@ export class InsertUserComponent implements OnInit {
 
     })
   }
+  
+
 
   onFileChange(event) {
 
@@ -50,6 +54,11 @@ export class InsertUserComponent implements OnInit {
        }
 
 
+  }
+
+  logout(){
+    localStorage.clear();
+    this.router.navigate['/'];
   }
 
   onPasswordChange() {

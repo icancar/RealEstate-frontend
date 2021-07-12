@@ -1,0 +1,203 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<mat-toolbar>
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+    <span>Edit estate</span>
+    <span class="menu-spacer"></span>
+    <button *ngIf='isLoggedIn' mat-icon-button class="example-icon" (click)='logout()'>
+        Log out
+    </button>
+</mat-toolbar>
+
+<div style="height: 100%;">
+    <mat-sidenav-container class="background-transparent" style="height: 100%;">
+        <mat-sidenav #drawer mode="over" #sidenav class='sclass'>
+            <br /><br />
+            <button  mat-button routerLink='/' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Home</button><br/><br/>
+            <span *ngIf="user.userType=='administrator'">
+                <button  mat-button routerLink='/registrationRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Registration requests</button><br/><br/>
+                <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Estate approval requests</button><br/><br/>
+                <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert estates</button><br/><br/>
+                <button  mat-button routerLink='/insertUser' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert user</button><br/><br/>
+                <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Change password</button><br/><br/>
+                <button  mat-button routerLink='/editProfile' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Edit profile</button><br/><br/>     
+                <button  mat-button routerLink='/allUsers' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">View all users</button><br/><br/>     
+                <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">My estates</button><br/><br/>
+        
+            </span>
+            <span *ngIf="user.userType=='agent'">
+                <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Change password</button><br/><br/>
+                <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Estate approval requests</button><br/><br/>
+                <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert estate</button><br/><br/>
+                <button  mat-button routerLink='/allEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">View all estates</button><br/><br/>
+                <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">My estates</button><br/><br/>
+            
+            </span>
+            <span *ngIf="user.userType=='korisnik'">
+                <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Change password</button><br/><br/>
+            <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">My estates</button><br/><br/>
+            <button  mat-button routerLink='/editProfile' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Edit profile</button><br/><br/>
+       
+            </span>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <div class="background-transparent custom-mat-drawer-content">
+                <router-outlet><div class="jumbotron">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6 offset-sm-3">
+                <div class="card" >
+                    <h4 class="card-header">Edit estate</h4>
+                    <div class="card-body">
+                        <form [formGroup]='estateInfo' (ngSubmit)='insert()'>
+                            <div class="form-group">
+                                <label for="name">Name of advertisement</label>
+                                <input type="text" name='name' class="form-control" formControlName="name" [ngClass]="{ 'is-invalid':name.errors?.required && submitted}"/> 
+                                <div *ngIf="name.errors?.required" class="invalid-feedback">
+                                    <div *ngIf="name.errors?.required">*Name of advertisement is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="municipality">Municipality</label>
+                                <input type="text"  name='municipality' class="form-control" formControlName="municipality" [ngClass]="{ 'is-invalid':municipality.errors?.required && submitted}"/>
+                                <div *ngIf="municipality.errors?.required" class="invalid-feedback">
+                                    <div *ngIf="municipality.errors?.required">*Municipality is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text"  name='city' class="form-control" formControlName="city" [ngClass]="{ 'is-invalid':city.errors?.required && submitted}"/>
+                                <div *ngIf="city.errors?.required" class="invalid-feedback">
+                                    <div *ngIf="city.errors?.required">*City is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="street">Street</label>
+                                <input type="text"  name='street' class="form-control" formControlName="street" [ngClass]="{ 'is-invalid':street.errors?.required && submitted}"/>
+                                <div *ngIf="street.errors?.required" class="invalid-feedback">
+                                    <div *ngIf="street.errors?.required">*Street is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="streetNumber">Street number</label>
+                                <input type="text"  name='streetNumber' class="form-control" formControlName="streetNumber"  [ngClass]="{ 'is-invalid':streetNumber.errors?.required && submitted}"/>
+                                <div *ngIf="streetNumber.errors?.required" class="invalid-feedback">
+                                    <div *ngIf="streetNumber.errors?.required">*Street number is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="picture">Estate pictures:</label>
+                                <br/>
+                                <input  multiple type="file"  name='picture'  (change)="onFilesChange($event)"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="typeOfAdvertisement">Type of advertisement:</label>
+                                <mat-select   class="form-control" formControlName="typeOfAdvertisement"  [ngClass]="{ 'is-invalid':streetNumber.errors?.required && submitted}">
+                                    <mat-option value="prodaja">Prodaja</mat-option>
+                                    <mat-option value="iznajmljivanje">Iznajmljivanje</mat-option>
+                                </mat-select>
+                                <div *ngIf="typeOfEstate.errors?.required" class="invalid-feedback">
+                                    <div *ngIf="typeOfEstate.errors?.required">*Type of advertisement is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Price</label>
+                                <input type="number"  name= 'price' class="form-control" formControlName="price"  [ngClass]="{ 'is-invalid':price.errors?.required && submitted}"/>
+                                <div *ngIf="price.errors?.required" class="invalid-feedback" >
+                                    <div *ngIf="price.errors?.required">*Price is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="size">Size</label>
+                                <input type="number"  name= 'size' class="form-control" formControlName="size"  [ngClass]="{ 'is-invalid':size.errors?.required && submitted}"/>
+                                <div *ngIf="size.errors?.required" class="invalid-feedback">
+                                    <div *ngIf="size.errors?.required">*Size is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="typeOfEstate">Type of estate:</label>
+                                <mat-select   class="form-control" formControlName="typeOfEstate"  [ngClass]="{ 'is-invalid':streetNumber.errors?.required && submitted}">
+                                    <mat-option value="kuca">Kuca</mat-option>
+                                    <mat-option value="stan">Stan</mat-option>
+                                </mat-select>
+                                <div *ngIf="typeOfEstate.errors?.required" class="invalid-feedback">
+                                    <div *ngIf="typeOfEstate.errors?.required">*Type of advertisement is required</div>
+                                </div>
+                            </div> 
+                            <div class="form-group">
+                                <label for="numberOfFloors">Number of floors:</label>
+                                <mat-select formControlName='numberOfFloors' class='form-control'>
+                                    <mat-option value='1'>1</mat-option>
+                                    <mat-option value="2">2</mat-option>
+                                    <mat-option value="3">3</mat-option>
+                                    <mat-option value="4">4</mat-option>
+                                    <mat-option value='5'>5</mat-option>
+                                    <mat-option value="6">6</mat-option>
+                                    <mat-option value="7">7</mat-option>
+                                    <mat-option value="8">8</mat-option>
+                                    <mat-option value='9'>9</mat-option>
+                                    <mat-option value="10">10</mat-option>
+                                    <mat-option value="11">11</mat-option>
+                                    <mat-option value="12">12</mat-option>
+                                </mat-select>
+                                
+                            </div>
+                            <div class="form-group">
+                                <label for="floorNumber">Floor number:</label>
+                                <mat-select formControlName='floorNumber' class='form-control'>
+                                    <mat-option value='1'>1</mat-option>
+                                    <mat-option value="2">2</mat-option>
+                                    <mat-option value="3">3</mat-option>
+                                    <mat-option value="4">4</mat-option>
+                                    <mat-option value='5'>5</mat-option>
+                                    <mat-option value="6">6</mat-option>
+                                    <mat-option value="7">7</mat-option>
+                                    <mat-option value="8">8</mat-option>
+                                    <mat-option value='9'>9</mat-option>
+                                    <mat-option value="10">10</mat-option>
+                                    <mat-option value="11">11</mat-option>
+                                    <mat-option value="12">12</mat-option>
+                                </mat-select>
+                                
+                            </div>
+                            <div class="form-group">
+                                <label for="furniture">Furniture:</label>
+                                <mat-select formControlName='furniture' class='form-control'>
+                                    <mat-option value='yes'>Yes</mat-option>
+                                    <mat-option value="no">No</mat-option>
+                                </mat-select>
+                                
+                            </div>
+                            <div class="form-group">
+                                <label for="numberOfRooms">Number of rooms:</label>
+                                <input type="number"  name= 'numberOfRooms' class="form-control" formControlName="numberOfRooms"  [ngClass]="{ 'is-invalid':numberOfRooms.errors?.required && submitted}"/>
+                                <div *ngIf="numberOfRooms.errors?.required" class="invalid-feedback">
+                                    <div *ngIf="numberOfRooms.errors?.required">*Number of rooms is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button  class="btn btn-primary" type="submit">
+                                   Update
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                <notifier-container></notifier-container>
+                </div>
+                </router-outlet>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
+<notifier-container></notifier-container>

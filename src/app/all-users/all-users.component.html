@@ -1,0 +1,66 @@
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<mat-toolbar>
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+    <span>All users</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon" *ngIf='isLoggedIn' (click)='logout()'>
+      Log out
+    </button>
+</mat-toolbar>
+
+<div style="height: 100%;">
+    <mat-sidenav-container class="background-transparent" style="height: 100%;">
+        <mat-sidenav  #drawer mode="over"  #sidenav class='sclass'>
+            <br/><br/>
+            <button  mat-button routerLink='/welcomeAdmin' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Home</button><br/><br/>
+            <button  mat-button routerLink='/registrationRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Registration requests</button><br/><br/>
+            <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Estate approval requests</button><br/><br/>
+            <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert estates</button><br/><br/>
+            <button  mat-button routerLink='/insertUser' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert user</button><br/><br/>
+            <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Change password</button><br/><br/>
+            <button  mat-button routerLink='/editProfile' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Edit profile</button><br/><br/>     
+            <button  mat-button routerLink='/allUsers' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">View all users</button><br/><br/>     
+            <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">My estates</button><br/><br/>
+        
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <div class="background-transparent custom-mat-drawer-content">
+                <router-outlet>
+                   
+                    <span *ngFor='let e of allUsers' style="margin-left: auto; margin-right: auto;">
+                       <span *ngIf='e.username != user.username'>
+                        <mat-card class="estate" >
+                            <mat-card-header>
+                              <mat-card-title>{{e.ime}} {{e.prezime}}</mat-card-title>
+                              <mat-card-subtitle>{{e.city}}, {{e.country}}</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="{{e.picture}}" alt="photo of user" height="200px">
+                            <mat-card-content>
+                                <br>
+                                <br/>
+                             <b> Email:</b> {{e.email}} <br/>
+                             <b> Tip korisnika: </b>{{e.userType}}<br/>
+                            </mat-card-content>
+                            <mat-card-actions >
+                              <button class="btn btn-primary" (click)="details(e.username)">Edit</button>
+                              <span *ngIf="e.accepted"><button mat-button (click)="deleteUser(e.username)">Delete</button></span>
+                              <span *ngIf="!e.accepted"><button mat-button (click)="acceptRequest(e.username)">Accept request</button></span>
+                            </mat-card-actions>
+                        </mat-card>
+                    </span>
+                        </span>
+
+                </router-outlet>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

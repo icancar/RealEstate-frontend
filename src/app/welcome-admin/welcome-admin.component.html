@@ -9,9 +9,9 @@
             close
         </mat-icon>
     </button>
-    <span>Welcome admin</span>
+    <span>Welcome, admin</span>
     <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon" *ngIf='isLoggedIn' (click)='logout()'>
+    <button mat-icon-button class="example-icon" (click)='logout()' *ngIf='isLoggedIn' (click)='logout()'>
       Log out
     </button>
 </mat-toolbar>
@@ -26,6 +26,9 @@
             <button  mat-button routerLink='/insertUser' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert user</button><br/><br/>
             <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Change password</button><br/><br/>
             <button  mat-button routerLink='/editProfile' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Edit profile</button><br/><br/>     
+            <button  mat-button routerLink='/allUsers' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">View all users</button><br/><br/>     
+            <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">My estates</button><br/><br/>
+        
         </mat-sidenav>
 
         <mat-sidenav-content>
@@ -37,7 +40,7 @@
                             <button mat-button (click)="prvi()">Nekretnine/Cjenovni rang</button>
                           </li>
                           <li class="nav-item">
-                            <button  mat-button (click)="drugi()">Drugi chart</button>
+                            <button  mat-button (click)="drugi()">Broj nekretnina po gradovima</button>
                           </li>
                           <li class="nav-item">
                             <button  mat-button (click)="treci()">Kuce/stanovi - prodaja/iznajmljivanje</button>

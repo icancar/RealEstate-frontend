@@ -35,6 +35,10 @@ import { InsertUserComponent } from './insert-user/insert-user.component'
 import { ChartsModule } from 'ng2-charts';
 import { ChartDataComponent } from './chart-data/chart-data.component';
 import { AllEstatesComponent } from './all-estates/all-estates.component';
+import { AllUsersComponent } from './all-users/all-users.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { EditEstateInfoComponent } from './edit-estate-info/edit-estate-info.component'
  
 
 const customNotifierOptions: NotifierOptions = {
@@ -97,7 +101,9 @@ const customNotifierOptions: NotifierOptions = {
     MyEstatesComponent,
     InsertUserComponent,
     ChartDataComponent,
-    AllEstatesComponent
+    AllEstatesComponent,
+    AllUsersComponent,
+    EditEstateInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -119,7 +125,9 @@ const customNotifierOptions: NotifierOptions = {
 	NgImageSliderModule,
 	MatSelectModule,
 	MatCheckboxModule,
-	ChartsModule
+	ChartsModule,
+	MatDatepickerModule,
+	MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
