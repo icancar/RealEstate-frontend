@@ -38,7 +38,10 @@ import { AllEstatesComponent } from './all-estates/all-estates.component';
 import { AllUsersComponent } from './all-users/all-users.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
-import { EditEstateInfoComponent } from './edit-estate-info/edit-estate-info.component'
+import { EditEstateInfoComponent } from './edit-estate-info/edit-estate-info.component';
+import { UpdateFeeComponent } from './update-fee/update-fee.component';
+import { AllTransactionsComponent } from './all-transactions/all-transactions.component';
+import { AllOffersComponent } from './all-offers/all-offers.component'
  
 
 const customNotifierOptions: NotifierOptions = {
@@ -103,7 +106,10 @@ const customNotifierOptions: NotifierOptions = {
     ChartDataComponent,
     AllEstatesComponent,
     AllUsersComponent,
-    EditEstateInfoComponent
+    EditEstateInfoComponent,
+    UpdateFeeComponent,
+    AllTransactionsComponent,
+    AllOffersComponent
   ],
   imports: [
     BrowserModule,

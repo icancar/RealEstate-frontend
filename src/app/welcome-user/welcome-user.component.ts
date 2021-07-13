@@ -30,6 +30,9 @@ export class WelcomeUserComponent implements OnInit {
     this.city=false;
     this.price=false;
     this.isLoggedIn=JSON.parse(localStorage.getItem('ulogovan'))!=null; 
+    if(!this.isLoggedIn){
+      this.router.navigate(["/"]);
+    }
     this.estateService.getAllApprovedEstates().subscribe((e:Estate[])=>{
       if(e){
         this.maxPriceSale=0;
@@ -52,10 +55,10 @@ export class WelcomeUserComponent implements OnInit {
       if(e){
         this.promotedEstates=e;
         for(let i=0;i<this.promotedEstates.length;i++){
-          let o={image:this.promotedEstates[i].gallery[0], thumbImage:this.promotedEstates[i].gallery[0], alt:'', title:this.promotedEstates[i].name};
+          let o={image:this.promotedEstates[i].gallery[0],thumbImage:this.promotedEstates[i].gallery[0], alt:this.promotedEstates[i].idAdvertisement, title:this.promotedEstates[i].name};
           this.imagesObject.push(o);
         }
-        this.notifier.notify("success", ""+this.promotedEstates.length);
+        
       }
     })
   }
@@ -95,7 +98,14 @@ export class WelcomeUserComponent implements OnInit {
 
   logout(){
     localStorage.clear();
-    this.router.navigate(['/']);
+    this.router.navigate(["/"]);
+  }
+
+  imageClickHandler(e) {
+   let index=parseInt(e);
+   this.router.navigate(['/estateInfo/'+this.promotedEstates[index].idAdvertisement]);
+   
+
   }
 
 }

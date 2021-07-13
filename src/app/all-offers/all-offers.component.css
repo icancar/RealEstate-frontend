@@ -1,0 +1,20 @@
+table {
+    width: 100%;
+  }
+
+  .menu-spacer {
+    flex: 1 1 auto;
+  }
+
+.sclass{
+    width: 18em;
+    text-align: center;
+}
+
+
+.button-accept{
+  background-color: lightgreen;
+}
+.button-decline{
+  background-color: lightcoral;
+}

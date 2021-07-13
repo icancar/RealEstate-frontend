@@ -96,7 +96,7 @@ export class HomeComponent implements OnInit {
     }
     else if(!this.city && this.price){
      //pretraga po ceni
-     this.notifier.notify('error', this.minPriceSearch+","+this.maxPriceSearch)
+
      this.estateService.searchByPrice(this.minPriceSearch, this.maxPriceSearch).subscribe((e:Estate[])=>{
       if(e){
         this.allApprovedEstates=e;

@@ -1,0 +1,98 @@
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<mat-toolbar>
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+    <span>All offers</span>
+    <span class="menu-spacer"></span>
+    <button mat-icon-button class="example-icon" *ngIf='isLoggedIn' (click)="logout()">
+      Log out
+    </button>
+</mat-toolbar>
+
+<div style="height: 100%;">
+    <mat-sidenav-container class="background-transparent" style="height: 100%;">
+        <mat-sidenav  #drawer mode="over"  #sidenav class='sclass'>
+            <br/><br/>
+            <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Change password</button><br/><br/>
+            
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <div class="background-transparent custom-mat-drawer-content">
+                <router-outlet>
+                    <div class="container">
+                        <ul class="nav nav-tabs">
+                          <li class="nav-item">
+                            <button mat-button (click)="prvi()">Prodaja</button>
+                          </li>
+                          <li class="nav-item">
+                            <button  mat-button (click)="drugi()">Iznajmljivanje</button>
+                          </li>
+                        </ul>
+                    </div>
+
+                    <table mat-table class="mat-elevation-z8" *ngIf="prvaTabela">
+                        <tr>
+                            <th>Naziv oglasa:</th>
+                            <th>Id oglasa:</th>
+                            <th>Id ponude:</th>
+                            <th>Kupac:</th>
+                            <th>Vlasnik:</th>
+                            <th>Ponuda:</th>
+                            <th>Prihod agenciji:</th>
+                            <th>Prihvati/Odbij</th>
+                        </tr>
+                        <tr *ngFor='let o of myOffersSale'>
+                            <td>{{o.nameOfAdvertisement}}</td>
+                            <td>{{o.idAdvertisement}}</td>
+                            <td>{{o.idOffer}}</td>
+                            <td>{{o.offerFrom}}</td>
+                            <td>{{o.offerTo}}</td>
+                            <td>{{o.price}} [EUR]</td>
+                            <td>{{o.transactionFees}} [EUR]</td>
+                            <td> <button mat-button class="button-accept"(click)="acceptOfferSale(o.idOffer,o.offerFrom,o.offerTo,o.idAdvertisement)">Prihvati</button>&nbsp;&nbsp;
+                                <button mat-button class='button-decline' (click)="declineOfferSale(o.idOffer)">Odbij</button>
+                             </td>
+                        </tr>
+                      </table>
+                      <table mat-table class="mat-elevation-z8" *ngIf="drugaTabela">
+                        <tr>
+                            <th>Naziv oglasa:</th>
+                            <th>Id oglasa:</th>
+                            <th>Id ponude:</th>
+                            <th>Kupac:</th>
+                            <th>Vlasnik:</th>
+                            <th>Pocetak rezervacije:</th>
+                            <th>Kraj rezervacije:</th>
+                            <th>Ponuda:</th>
+                            <th>Prihod agenciji:</th>
+                            <th>Prihvati/Odbij</th>
+                        </tr>
+                        <tr *ngFor='let o of myOffersRent'>
+                            <td>{{o.nameOfAdvertisement}}</td>
+                            <td>{{o.idAdvertisement}}</td>
+                            <td>{{o.idOffer}}</td>
+                            <td>{{o.offerFrom}}</td>
+                            <td>{{o.offerTo}}</td>
+                            <td>{{o.date1}}</td>
+                            <td>{{o.date2}}</td>
+                            <td>{{o.price}} [EUR]</td>
+                            <td>{{o.transactionFees}} [EUR]</td>
+                            <td>
+                                <button mat-button class="button-accept" >Prihvati</button>&nbsp;&nbsp;
+                                <button mat-button class='button-decline'>Odbij</button>
+                            </td>
+                        </tr>
+                      </table>
+                </router-outlet>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

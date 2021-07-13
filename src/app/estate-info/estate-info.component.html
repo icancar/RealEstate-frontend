@@ -11,7 +11,7 @@
     </button>
     <span>Estate info</span>
     <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon" *ngIf='isLoggedIn'(click)='logout()'>
+    <button mat-icon-button  (click)='logout()' *ngIf='isLoggedIn' >
       Log out
     </button>
 </mat-toolbar>
@@ -52,12 +52,12 @@
         <mat-sidenav-content>
             <div class="background-transparent custom-mat-drawer-content">
                 <router-outlet>
-                   
+                    
                     <div >
                         <div class="estateInfo">
                             <h1>{{estate.name}}</h1>
                             <div>
-                                <ng-image-slider [images]="imagesObject" #nav infinite='true' [autoSlide]='{interval: 1, stopOnHover: true}'></ng-image-slider>
+                                <ng-image-slider [images]="imagesObject"  #nav infinite='true'  [autoSlide]='{interval: 1, stopOnHover: true}'></ng-image-slider>
                               </div>
                             <p><b>Adresa:</b> {{estate.street}}, Opstina {{estate.municipality}}, {{estate.city}} </p>
                             <p><b>Tip:</b> {{estate.typeOfEstate}}</p>
@@ -67,13 +67,13 @@
                                 <p><b>Ukupan broj spratova zgrade:</b> {{estate.numberOfFloors}}</p>
                             </div>
                             <p><b>Velicina:</b> {{estate.size}} kvadrata, {{estate.numberOfRooms}} soba</p>
-                            <p *ngIf="estate.furniture==true"><b>Namestaj:</b> Namesten</p>
-                            <p *ngIf="estate.furniture==false"><b>Namestaj:</b> Nenamesten</p>
+                            <p *ngIf="estate.furniture==true"><b>Namjestaj:</b> Namjesten</p>
+                            <p *ngIf="estate.furniture==false"><b>Namjestaj:</b> Nenamjesten</p>
                             
                            
                             <p *ngIf="estate.typeOfAdvertisement=='iznajmljivanje'"> <b>Tip oglasa:</b> Izdavanje</p>
                             <p *ngIf="estate.typeOfAdvertisement=='prodaja'"> <b>Tip oglasa:</b> Prodaja</p>
-                            <p ><b>Cena:</b> {{estate.price}} EUR</p>
+                            <p ><b>Cijena:</b> {{estate.price}} EUR</p>
                             <p><b>Vlasnik: </b> {{estate.ownerUsername}}</p>
                             <br>
                             <span *ngIf="estate.typeOfAdvertisement=='iznajmljivanje'">
@@ -94,7 +94,7 @@
                                   </mat-form-field>
                                   &nbsp;
                                   &nbsp;
-                                  <button  class="btn btn-primary" (click)='reserve()'>Rezervisi</button>     
+                                  <button  class="btn btn-primary" (click)='ponudaRezervacija()'>Rezervisi</button>     
                             </span>
                             <span *ngIf="estate.typeOfAdvertisement=='prodaja'">
                                 <b>Placanje: </b>
@@ -114,6 +114,12 @@
                                     <br/>
                                     <b>Ukupno:</b> {{estate.price}} [EUR] <span *ngIf="placanje=='kredit'">+ {{ucesce}} [EUR] (20% ucesce)={{ukupno}} [EUR]</span>
                                 </span>
+                                <br/>
+                                <br/>
+                                <input type="number" class="form-input-price" name="minPriceSearch" [(ngModel)]='price'> &nbsp;
+                                &nbsp;
+                                &nbsp;
+                                <button style="margin-left: auto;margin-right: auto;" class="btn btn-primary" (click)='ponudaProdaja()'>Posalji ponudu</button>     
                             </span>
                         </div>
                     </div>
@@ -122,6 +128,3 @@
         </mat-sidenav-content>
     </mat-sidenav-container>
 </div>
-<notifier-container>
-
-</notifier-container>

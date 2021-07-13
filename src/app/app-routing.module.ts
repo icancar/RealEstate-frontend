@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AllEstatesComponent } from './all-estates/all-estates.component';
+import { AllOffersComponent } from './all-offers/all-offers.component';
+import { AllTransactionsComponent } from './all-transactions/all-transactions.component';
 import { AllUsersComponent } from './all-users/all-users.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ChartDataComponent } from './chart-data/chart-data.component';
@@ -13,6 +15,7 @@ import { InsertUserComponent } from './insert-user/insert-user.component';
 import { MyEstatesComponent } from './my-estates/my-estates.component';
 import { RegisterComponent } from './register/register.component';
 import { RegistrationRequestsComponent } from './registration-requests/registration-requests.component';
+import { UpdateFeeComponent } from './update-fee/update-fee.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { UsersComponent } from './users/users.component';
 import { WelcomeAdminComponent } from './welcome-admin/welcome-admin.component';
@@ -38,7 +41,10 @@ const routes: Routes = [
   {path: "allEstates", component:AllEstatesComponent},
   {path: "allUsers", component:AllUsersComponent},
   {path: "editProfile/:username", component:UserInfoComponent},
-  {path: "editEstateInfo/:id", component:EditEstateInfoComponent}
+  {path: "editEstateInfo/:id", component:EditEstateInfoComponent},
+  {path: "updateFee", component:UpdateFeeComponent},
+  {path: "allTransactions", component:AllTransactionsComponent},
+  {path: "allOffers", component:AllOffersComponent}
 ];
 
 @NgModule({

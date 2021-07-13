@@ -32,7 +32,7 @@
 
                     <div class="background-transparent custom-mat-drawer-content">
                         <div>
-                          <ng-image-slider [images]="imagesObject" #nav infinite='true' [autoSlide]='{interval: 2, stopOnHover: true}'></ng-image-slider>
+                          <ng-image-slider [images]="imagesObject" [imagePopup]="false" (imageClick)="imageClickHandler($event)" #nav infinite='true' [autoSlide]='{interval: 2, stopOnHover: true}'></ng-image-slider>
                         </div>
                               <br/>
                               <mat-card class='search-card'>

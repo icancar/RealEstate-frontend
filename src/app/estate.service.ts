@@ -139,4 +139,24 @@ export class EstateService {
     }
     return this.http.post(`${this.uri}/estates/updateEstatePhotos`, data);
   }
+
+  updateFee(prodaja, iznajmljivanje, username){
+    const data={
+      prodaja:prodaja,
+      username:username,
+      iznajmljivanje:iznajmljivanje
+    }
+    return this.http.post(`${this.uri}/estates/updateFee`, data)
+  }
+
+  getFee(username){
+    const data ={
+      username:username
+    }
+    return this.http.post(`${this.uri}/estates/getFee`, data)
+  }
+
+
+  
+
 }
