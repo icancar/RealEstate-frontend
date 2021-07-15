@@ -43,8 +43,8 @@ export class EditEstateInfoComponent implements OnInit {
       price: new FormControl(this.estate.price, Validators.required),
       size: new FormControl(this.estate.size, Validators.required),
       typeOfEstate: new FormControl(this.estate.typeOfEstate, Validators.required),
-      numberOfFloors: new FormControl(this.estate.numberOfFloors.toString(), Validators.required),
-      floorNumber: new FormControl(this.estate.floorNumber.toString(), Validators.required),
+      numberOfFloors: new FormControl(this.estate.numberOfFloors.toString()),
+      floorNumber: new FormControl(this.estate.floorNumber.toString()),
       furniture: new FormControl(this.estate.furniture==true? "yes":'no', Validators.required),
       numberOfRooms: new FormControl(this.estate.numberOfRooms, Validators.required),
         })
@@ -108,13 +108,13 @@ export class EditEstateInfoComponent implements OnInit {
         this.photos.push("../../assets/properties/" + this.photosFile[i].name);
       }
       if(this.photosFile.length<3 && this.photosFile.length>=0){
-        this.notifier.notify('warning', 'You need to select at least 3 images.')
+        this.notifier.notify('warning', 'Morate odabrati bar 3 fotografije.')
       }else{
         this.fileService.uploadEstatePhotos(this.photosFile).subscribe((response)=>{
-          if(response) {this.notifier.notify('success', "Photos uploaded");
+          if(response) {this.notifier.notify('success', "Slike uploadovane");
           this.estateService.updateEstatePhotos(this.idEstate,this.photos).subscribe((res)=>{
             if(res['message']=='estatePhotosUpdated'){
-              this.notifier.notify('success', "Photos updated!")
+              this.notifier.notify('success', "Slike azurirane!")
             }
             else {
               this.notifier.notify('error', res['message']);
@@ -136,7 +136,7 @@ export class EditEstateInfoComponent implements OnInit {
           }
           this.estateService.updateEstate(this.idEstate,this.name.value,this.municipality.value,this.city.value,this.street.value,this.streetNumber.value,this.typeOfAdvertisement.value,this.price.value,this.size.value,this.typeOfEstate.value,this.numberOfFloors.value,this.floorNumber.value,this.furnitureBoolean,this.numberOfRooms.value).subscribe(res =>{
             if(res['message']=='estateUpdated'){
-              this.notifier.notify('success', "Estate updated")
+              this.notifier.notify('success', "Oglas azuriran")
             }
             else {
               this.notifier.notify('error', res['message']);

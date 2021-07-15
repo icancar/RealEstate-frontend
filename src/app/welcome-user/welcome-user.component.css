@@ -1,4 +1,4 @@
-.example-spacer {
+.menu-spacer {
   flex: 1 1 auto;
 }
 .sclass{
@@ -10,17 +10,17 @@ width: 200px;
 }
 
 .estate {
-background:lightblue;
-border-radius: 10px;
-width: 300px;
-height: 200px;
-margin-left: 10px;
-margin-right: 10px;
-display: inline-table;
-margin-bottom: 20px;
-margin:15px;
-font-family:Arial, Helvetica, sans-serif;
-font-style: oblique;
+  background:lightblue;
+  border-radius: 10px;
+  width: 270px;
+  height: 100px;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: inline-table;
+  margin-bottom: 20px;
+  margin:15px;
+  font-family:Arial, Helvetica, sans-serif;
+  font-style: oblique;
 }
 
 .search-card{
@@ -33,7 +33,7 @@ margin-left:auto;
 margin-right: auto;
 }
 
-.example-margin {
+.search-margin {
 margin: 0 10px;
 }
 .form-input-price{
@@ -42,4 +42,16 @@ max-width: 100px;
 
 estate-header-image {
 background-size: cover;
+}
+
+
+.promoted-estates{
+  width: 845px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.all-estates{
+  margin-left: auto;
+  margin-right: auto;
 }

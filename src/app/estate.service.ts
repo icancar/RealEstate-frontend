@@ -79,6 +79,7 @@ export class EstateService {
       numberOfRooms:estate.numberOfRooms,
       promoted:false,
       approved:estate.approved,
+      sold:false,
       views:0
     }
     return this.http.post(`${this.uri}/estates/insertEstate`, data);

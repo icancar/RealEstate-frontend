@@ -22,11 +22,17 @@ export class AllTransactionsComponent implements OnInit {
     this.isLoggedIn=JSON.parse(localStorage.getItem("ulogovan"))!=null;
     if(this.isLoggedIn){
       this.user=JSON.parse(localStorage.getItem("ulogovan"));
+      if(this.user.userType=='korisnik'){
+        localStorage.clear();
+        this.router.navigate(["/"]);
+      }
       this.offerService.getAllAcceptedOffersSale().subscribe((o:Offer[])=>{
         this.offersSale=o;
+        this.prihodOdProdaje();
       })
       this.offerService.getAllAcceptedOffersRent().subscribe((o:Offer[])=>{
         this.offersRent=o;
+        this.prihodOdIznajmljivanja();
       })
     }else {
       this.router.navigate(["/"]);
@@ -51,6 +57,28 @@ export class AllTransactionsComponent implements OnInit {
   drugi(){
     this.prvaTabela=false;
     this.drugaTabela=true;
+  }
+
+  prihodProdaja:number =0;
+  prihodIznajmljivanje:number=0;
+
+
+  prihodOdProdaje(){
+    for(let i=0;i<this.offersSale.length;i++){
+      if(this.offersSale[i].offerTo=='agencija'){
+        this.prihodProdaja+=this.offersSale[i].price;
+      }
+      this.prihodProdaja+=this.offersSale[i].transactionFees;
+    }
+  }
+
+  prihodOdIznajmljivanja(){
+    for(let i=0;i<this.offersSale.length;i++){
+      if(this.offersRent[i].offerTo=='agencija'){
+        this.prihodIznajmljivanje+=this.offersRent[i].price;
+      }
+      this.prihodIznajmljivanje+=this.offersRent[i].transactionFees;
+    }
   }
 
 }

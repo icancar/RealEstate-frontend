@@ -9,10 +9,10 @@
             close
         </mat-icon>
     </button>
-    <span>Update fee</span>
+    <span>Azuriranje procenta posredovanja</span>
     <span class="menu-spacer"></span>
-    <button mat-icon-button class="example-icon" *ngIf='isLoggedIn'>
-      Log out
+    <button mat-icon-button class="example-icon" *ngIf='isLoggedIn' (click)="logout()">
+      Odjava
     </button>
 </mat-toolbar>
 
@@ -20,50 +20,49 @@
     <mat-sidenav-container class="background-transparent" style="height: 100%;">
         <mat-sidenav  #drawer mode="over"  #sidenav class='sclass'>
             <br/><br/>
-            <button  mat-button routerLink='/welcomeAdmin' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Home</button><br/><br/>
-            <button  mat-button routerLink='/registrationRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Registration requests</button><br/><br/>
-            <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Estate approval requests</button><br/><br/>
-            <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert estates</button><br/><br/>
-            <button  mat-button routerLink='/insertUser' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert user</button><br/><br/>
-            <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Change password</button><br/><br/>
-            <button  mat-button routerLink='/editProfile' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Edit profile</button><br/><br/>     
-            <button  mat-button routerLink='/allUsers' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">View all users</button><br/><br/>     
-            <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">My estates</button><br/><br/>
-            <button  mat-button routerLink='/updateFee' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Update fee</button><br/><br/>
-        
+            <button  mat-button routerLink='/welcomeAdmin' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pocetna stranica</button><br/><br/>
+            <button  mat-button routerLink='/registrationRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Zahtjevi za registraciju</button><br/><br/>
+            <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Zahtjevi za nekretnine</button><br/><br/>
+            <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Dodaj nekretninu</button><br/><br/>
+            <button  mat-button routerLink='/insertUser' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Dodaj korisnika</button><br/><br/>
+            <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Promjena lozinke</button><br/><br/>
+            <button  mat-button routerLink='/editProfile' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Azuriranje profila</button><br/><br/>     
+            <button  mat-button routerLink='/allUsers' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pregled svih korisnika</button><br/><br/>     
+            <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Moje nekretnine</button><br/><br/>
+            <button  mat-button routerLink='/updateFee' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Azuriraj procenat za posredovanje</button><br/><br/>
+            <button  mat-button routerLink='/allTransactions' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Sve transakcije</button><br/><br/>
+            <button  mat-button routerLink='/allOffers' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pregled ponuda</button><br/><br/>
+            
         </mat-sidenav>
 
         <mat-sidenav-content>
             <div class="background-transparent custom-mat-drawer-content">
                 <router-outlet>
-                    <notifier-container>
-
-                    </notifier-container>    
 <div class="jumbotron">
     <div class="container">
         <div class="row">
             <div class="col-sm-6 offset-sm-3">
 <div class="card">
-    <h4 class="card-header">Update fee</h4>
+    <h4 class="card-header">Procenat za posredovanje</h4>
     <div class="card-body">
         <form [formGroup]='fee' (ngSubmit)='updateFee()'>
             <div class="form-group">
-            <label for="usrename">Sale</label>
+            <label for="usrename">Prodaja</label>
                 <input type="number"  name='username' class="form-control" formControlName="prodaja" [ngClass]="{ 'is-invalid':prodaja.errors?.required && submitted}"/>
                 <div *ngIf="prodaja.errors?.required" class="invalid-feedback">
-                    <div *ngIf="prodaja.errors?.required">*Sale percentage is required</div>
+                    <div *ngIf="prodaja.errors?.required">*Procenat za prodaju je obavezan</div>
                 </div>
             </div>
             <div class="form-group">
-                <label for="usrename">Rent</label>
+                <label for="usrename">Iznajmljivanje</label>
                     <input type="number"  name='password' class="form-control" formControlName="iznajmljivanje" [ngClass]="{ 'is-invalid':iznajmljivanje.errors?.required && submitted}"/>
                     <div *ngIf="iznajmljivanje.errors?.required" class="invalid-feedback">
-                        <div *ngIf="iznajmljivanje.errors?.required">*Rent percentage is required</div>
+                        <div *ngIf="iznajmljivanje.errors?.required">*Procenat za iznajmljivanje je obavezan</div>
                     </div>
                 </div>
             <div class="form-group">
                 <button  class="btn btn-primary" type="submit">
-                    Update
+                    Azuriraj
                 </button>
             </div>
         </form>

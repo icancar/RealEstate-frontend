@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
 import { FilesService } from '../files.service';
 import { User } from '../models/user';
@@ -12,7 +13,7 @@ import { UsersService } from '../users.service';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private filesService:FilesService, private userService:UsersService, private notifier:NotifierService) {
+  constructor(private router:Router,private filesService:FilesService, private userService:UsersService, private notifier:NotifierService) {
     this.notifier=notifier;
    }
 
@@ -23,9 +24,13 @@ export class RegisterComponent implements OnInit {
   picturePath:string;
   regForm:FormGroup;
 
-
+   isLoggedIn:boolean;
   ngOnInit(): void {
     this.submitted=false;
+    this.isLoggedIn=JSON.parse(localStorage.getItem("ulogovan"))!=null;
+    if(this.isLoggedIn){
+      this.router.navigate(["/"]);
+    }
     this.regForm=new FormGroup({
       name: new FormControl("",[Validators.minLength(1), Validators.required]),
       surname: new FormControl("", [Validators.required,Validators.minLength(1)]),
@@ -91,13 +96,13 @@ export class RegisterComponent implements OnInit {
         let user = new User(name, surname, username, password,this.picturePath,email,city,country, false);
         this.userService.register(user).subscribe(res =>{
           if(res['message']=='userAdded'){
-            this.notifier.notify('success', "Registration request sent!")
+            this.notifier.notify('success', "Zahtjev za registraciju poslat!")
           }
           else if(res['message']=='usernameExists'){
-            this.notifier.notify('warning', "Username already exists")
+            this.notifier.notify('warning', "Username je zauzeto")
           }
           else if(res['message']=='emailExists'){
-            this.notifier.notify('warning',"Email already exists")
+            this.notifier.notify('warning',"Email je zauzet")
           }
           else {
             this.notifier.notify('error', res['message']);
@@ -109,13 +114,13 @@ export class RegisterComponent implements OnInit {
       let user = new User(name, surname, username, password, path,email,city,country, false);
         this.userService.register(user).subscribe(res =>{
           if(res['message']=='userAdded'){
-            this.notifier.notify('success', "Registration request sent!");
+            this.notifier.notify('success', "Zahtjev za registraciju poslat!");
           }
           else if(res['message']=='usernameExists'){
-            this.notifier.notify('warning', "Username already exists");
+            this.notifier.notify('warning', "Username je zauzeto");
           }
           else if(res['message']=='emailExists'){
-            this.notifier.notify('warning',"Email already exists");
+            this.notifier.notify('warning',"Email je zauzet");
           }
           else {
             this.notifier.notify('error', res['message']);

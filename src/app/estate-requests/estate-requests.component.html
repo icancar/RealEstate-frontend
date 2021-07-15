@@ -9,10 +9,10 @@
             close
         </mat-icon>
     </button>
-    <span>Estate approval requests</span>
-    <span class="example-spacer"></span>
+    <span>Zahtjevi za odobravanje nekretnina</span>
+    <span class="menu-spacer"></span>
     <button mat-icon-button class="example-icon" *ngIf='isLoggedIn' (click)='logout()'>
-      Log out
+      Odjava
     </button>
 </mat-toolbar>
 
@@ -20,26 +20,33 @@
     <mat-sidenav-container class="background-transparent" style="height: 100%;">
         <mat-sidenav  #drawer mode="over"  #sidenav class='sclass'>
             <br/><br/>
-            <button  mat-button routerLink='/' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Home</button><br/><br/>
+            <button  mat-button routerLink='/' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pocetna stranica</button><br/><br/>
             <span *ngIf="user.userType=='administrator'">
-                <button  mat-button routerLink='/registrationRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Registration requests</button><br/><br/>
-                <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Estate approval requests</button><br/><br/>
-                <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert estates</button><br/><br/>
-                <button  mat-button routerLink='/insertUser' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert user</button><br/><br/>
-                <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Change password</button><br/><br/>
-                <button  mat-button routerLink='/editProfile' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Edit profile</button><br/><br/>     
-                <button  mat-button routerLink='/allUsers' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">View all users</button><br/><br/>     
-                <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">My estates</button><br/><br/>
-        
+                <button  mat-button routerLink='/registrationRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Zahtjevi za registraciju</button><br/><br/>
+            <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Zahtjevi za nekretnine</button><br/><br/>
+            <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Dodaj nekretninu</button><br/><br/>
+            <button  mat-button routerLink='/insertUser' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Dodaj korisnika</button><br/><br/>
+            <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Promjena lozinke</button><br/><br/>
+            <button  mat-button routerLink='/editProfile' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Azuriranje profila</button><br/><br/>     
+            <button  mat-button routerLink='/allUsers' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pregled svih korisnika</button><br/><br/>     
+            <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Moje nekretnine</button><br/><br/>
+            <button  mat-button routerLink='/updateFee' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Azuriraj procenat za posredovanje</button><br/><br/>
+            <button  mat-button routerLink='/allTransactions' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Sve transakcije</button><br/><br/>
+            <button  mat-button routerLink='/allOffers' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pregled ponuda</button><br/><br/>
+            
             </span>
             <span *ngIf="user.userType=='agent'">
-                <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Change password</button><br/><br/>
-            <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Estate approval requests</button><br/><br/>
-            <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert estate</button><br/><br/>
-            <button  mat-button routerLink='/allEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">View all estates</button><br/><br/>
-            <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">My estates</button><br/><br/>
-        
+                <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Promjena lozinke</button><br/><br/>
+                <button  mat-button routerLink='/editProfile' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Azuriranje profila</button><br/><br/> 
+                <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Zahtjevi za nekretnine</button><br/><br/>
+            <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Dodaj nekretninu</button><br/><br/>
+            <button  mat-button routerLink='/allEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pregled svih nekretnina</button><br/><br/>
+            <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Moje nekretnina</button><br/><br/>
+            <button  mat-button routerLink='/allTransactions' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pregled svih transakcija</button><br/><br/>
+            <button  mat-button routerLink='/allOffers' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pregled ponuda</button><br/><br/>
+            
             </span>
+        
         </mat-sidenav>
 
         <mat-sidenav-content>
@@ -61,8 +68,8 @@
                              <b> Tip oglasa: </b> {{e.typeOfAdvertisement}}
                             </mat-card-content>
                             <mat-card-actions >
-                                <button mat-button class="button-accept" (click)='acceptEstateRequest(e.idAdvertisement)'>Accept</button>
-                                <button mat-button class='button-decline'(click)='declineEstateRequest(e.idAdvertisement)'>Decline</button>
+                                <button mat-button class="button-accept" (click)='acceptEstateRequest(e.idAdvertisement)'>Prihvati</button>
+                                <button mat-button class='button-decline'(click)='declineEstateRequest(e.idAdvertisement)'>Odbij</button>
                             </mat-card-actions>
                           </mat-card>
                         </span>

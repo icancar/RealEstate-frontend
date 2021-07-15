@@ -14,9 +14,17 @@ export class RegistrationRequestsComponent implements OnInit {
   constructor(private router:Router,private userService:UsersService, private notifier:NotifierService) { }
 
   isLoggedIn:boolean
+  user:User;
   registrationRequestUsers: User[];
   ngOnInit(): void {
     this.isLoggedIn=JSON.parse(localStorage.getItem('ulogovan'))!=null;
+    if(this.isLoggedIn){
+      this.user=JSON.parse(localStorage.getItem("ulogovan"));
+      if(this.user.userType!='administrator'){
+        localStorage.clear();
+        this.router.navigate(["/"]);
+      }
+    }
     this.userService.getAllRegistrationRequests().subscribe((users:User[])=>{
       if(users){
         this.registrationRequestUsers=users;

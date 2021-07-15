@@ -24,6 +24,10 @@ export class UpdateFeeComponent implements OnInit {
     this.isLoggedIn=JSON.parse(localStorage.getItem('ulogovan'))!=null;
     if(this.isLoggedIn){
       this.user=JSON.parse(localStorage.getItem('ulogovan'));
+      if(this.user.userType!='administrator'){
+        localStorage.clear();
+        this.router.navigate(["/"]);
+      }
       this.estateService.getFee(this.user.username).subscribe((f:Fee)=>{
         this.actualFee=f;
         this.fee=new FormGroup({
@@ -56,7 +60,7 @@ submitted:boolean=false;
     this.submitted=true;
     this.estateService.updateFee(this.prodaja.value, this.iznajmljivanje.value, this.user.username).subscribe((res)=>{
       if(res["message"]=='feeUpdated'){
-        this.notifier.notify("success", "Fee updated!")
+        this.notifier.notify("success", "Procenti azurirani!")
       }else {
         this.notifier.notify("error", res["message"]);
       }

@@ -1,4 +1,4 @@
-.example-spacer {
+.menu-spacer {
     flex: 1 1 auto;
   }
 .sclass{
@@ -12,8 +12,8 @@
 .estate {
   background:lightblue;
   border-radius: 10px;
-  width: 300px;
-  height: 200px;
+  width: 270px;
+  height: 100px;
   margin-left: 10px;
   margin-right: 10px;
   display: inline-table;
@@ -31,9 +31,10 @@
   text-align: center;
   margin-left:auto;
   margin-right: auto;
+  border: 5px solid lightgrey;
 }
 
-.example-margin {
+.search-margin {
   margin: 0 10px;
 }
 .form-input-price{
@@ -42,4 +43,15 @@
 
 estate-header-image {
   background-size: cover;
+}
+
+.promoted-estates{
+  width: 845px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.all-estates{
+  margin-left: auto;
+  margin-right: auto;
 }

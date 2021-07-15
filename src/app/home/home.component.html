@@ -9,16 +9,13 @@
             close
         </mat-icon>
     </button>
-    <span>Welcome, guest</span>
-    <span class="example-spacer"></span>
+    <span>Welcome, gost</span>
+    <span class="menu-spacer"></span>
     <button mat-button class="example-icon" *ngIf='!isLoggedIn' (click)='register()'>
-        Register
+        Registracija
       </button>
-    <button mat-button class="example-icon" *ngIf='isLoggedIn' (click)='logout()'>
-      Log out
-    </button>
     <button mat-button class="example-icon" *ngIf='!isLoggedIn' (click)='login()'>
-        Log in
+        Prijava
       </button>
 </mat-toolbar>
 
@@ -26,13 +23,15 @@
     <mat-sidenav-container class="background-transparent" style="height: 100%;">
         <mat-sidenav  #drawer mode="over"  #sidenav class='sclass'>
             <br/><br/>
-            <button  mat-button routerLink='/about' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">About</button><br/><br/>
+            <button  mat-button routerLink='/register' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Registracija</button><br/><br/>
+            <button  mat-button routerLink='/login' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Prijava</button><br/><br/>
+       
         </mat-sidenav>
 
         <mat-sidenav-content>
             <div class="background-transparent custom-mat-drawer-content">
-              <div>
-                <ng-image-slider [images]="imagesObject" #nav infinite='true' [imagePopup]="false" [autoSlide]='{interval: 2, stopOnHover: true}'></ng-image-slider>
+              <div class="promoted-estates">
+                <ng-image-slider [images]="imagesObject" #nav infinite='true' [imagePopup]="false" [autoSlide]='{interval: 2, stopOnHover: true}' *ngIf='loadingFinished'></ng-image-slider>
               </div>
                     <br/>
                     <mat-card class='search-card'>
@@ -43,8 +42,8 @@
                             
                             <br/>
                                 <section>
-                                    <mat-checkbox class="example-margin" [(ngModel)]="city">Po gradu</mat-checkbox>
-                                    <mat-checkbox class="example-margin" [(ngModel)]="price">Po ceni</mat-checkbox>
+                                    <mat-checkbox class="search-margin" [(ngModel)]="city">Po gradu</mat-checkbox>
+                                    <mat-checkbox class="search-margin" [(ngModel)]="price">Po ceni</mat-checkbox>
                                     <br/><br/>
                                     <div *ngIf='city'>
                                         <b> Grad:</b> <input type="text" class="form-input" name="citySearch" [(ngModel)]='citySearch'>
@@ -68,6 +67,7 @@
 
 
                     <br/>
+                    <div class="all-estates">
                    <span *ngFor='let e of allApprovedEstates'>
                     <mat-card class="estate" >
                         <mat-card-header>
@@ -89,7 +89,7 @@
                         </mat-card-actions>
                     </mat-card>
                     </span>
-                      
+                </div>
             
                 
                 
@@ -108,4 +108,3 @@
         </mat-sidenav-content>
     </mat-sidenav-container>
 </div>
-<notifier-container></notifier-container>

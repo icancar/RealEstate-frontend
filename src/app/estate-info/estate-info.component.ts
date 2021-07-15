@@ -22,6 +22,8 @@ export class EstateInfoComponent implements OnInit {
   endDate:string;
   isLoggedIn:boolean;
   id:string;
+  iznajmljivanjeB:boolean;
+  prodajaB:boolean;
   ucesce:number;
   placanje:string;
   offers:Offer[];
@@ -33,12 +35,28 @@ export class EstateInfoComponent implements OnInit {
     this.isLoggedIn=JSON.parse(localStorage.getItem('ulogovan'))!=null;
     if(this.isLoggedIn){
       this.user=JSON.parse(localStorage.getItem('ulogovan'))
+    }else {
+      this.router.navigate(["/"]);
     }
+    
     this.id=this.route.snapshot.paramMap.get('id');
     if(this.id!=null){
       this.estateService.getEstateViaId(this.id).subscribe((e:Estate)=>{
         if(e){
           this.estate=e;
+          if(this.estate.ownerUsername=='agencija' && (this.user.userType=='agent' || this.user.userType=='administrator')){
+            this.prodajaB=false;
+            this.iznajmljivanjeB=false
+          }else {
+          if(this.estate.ownerUsername!=this.user.username){
+            this.prodajaB=true;
+            this.iznajmljivanjeB=true;
+          }
+          else{
+            this.prodajaB=false;
+            this.iznajmljivanjeB=false;
+          }
+        }
           this.ucesce=this.estate.price/5;
           this.ukupno=this.ucesce+this.estate.price;
           for(let i=0;i<this.estate.gallery.length;i++){
@@ -70,6 +88,8 @@ export class EstateInfoComponent implements OnInit {
    localStorage.clear();
    this.router.navigate(["/"]);
   }
+
+  
   available:boolean=true;
   ponudaRezervacija(){
     if(this.endDate==null && this.startDate==null){
@@ -78,9 +98,12 @@ export class EstateInfoComponent implements OnInit {
       this.checkAvailability();
       if(this.available){
       let transactionFee=(this.fee.prodaja*this.estate.price)/100;
+      if(this.estate.ownerUsername=='agencija' || this.user.userType=='administrator' || this.user.userType=='agent'){
+        transactionFee=0;
+      }
       let date1=new Date(this.startDate).toISOString().substr(0,10);
       let date2=new Date(this.endDate).toISOString().substring(0,10);
-      let o = new Offer("iznajmljivanje",this.estate.idAdvertisement, this.estate.name,this.user.username, this.estate.ownerUsername, date1, date2,false, transactionFee,"waiting", this.price);
+      let o = new Offer("iznajmljivanje",this.estate.idAdvertisement, this.estate.name,this.user.username, this.estate.ownerUsername, date1, date2,false, transactionFee,"waiting", this.estate.price);
       this.offerService.sendOffer(o).subscribe((res)=>{
         if(res['message']=="offerSent"){
           this.notifier.notify("success", "Ponuda poslata!");
@@ -98,6 +121,9 @@ export class EstateInfoComponent implements OnInit {
     }
     else {
     let transactionFee=(this.fee.prodaja*this.price)/100;
+    if(this.estate.ownerUsername=='agencija' || this.user.userType=='administrator' || this.user.userType=='agent'){
+      transactionFee=0;
+    }
     let o = new Offer("prodaja",this.estate.idAdvertisement, this.estate.name,this.user.username, this.estate.ownerUsername, "", "",false, transactionFee,"waiting", this.price);
     this.offerService.sendOffer(o).subscribe((res)=>{
       if(res['message']=="offerSent"){
@@ -111,6 +137,7 @@ export class EstateInfoComponent implements OnInit {
   
   price:number;
   checkAvailability(){
+    this.available=true;
     let date1=new Date(this.startDate).toISOString().substr(0,10);
     let date2=new Date(this.endDate).toISOString().substring(0,10);
     let d1=new Date(date1);

@@ -18,6 +18,7 @@ export class Estate {
     promoted:boolean;
     approved:boolean;
     views:number;
+    sold:boolean;
 
     constructor(name:string, municipality:string, city:string, street:string,owner:string, streetNum:string,adType:string,size:number, price:number, estateType:string, floorCNT:number,floorNum:number,media: string[], furniture:boolean, numberOfR:number,approved:boolean){
         this.name=name;
@@ -39,6 +40,7 @@ export class Estate {
         this.views=0;
         this.approved=approved;
         this.promoted=false;
+        this.sold=false;
     }
 
 

@@ -68,9 +68,11 @@ export class HomeComponent implements OnInit {
           let o={image:this.promotedEstates[i].gallery[0], thumbImage:this.promotedEstates[i].gallery[0], alt:'', title:this.promotedEstates[i].name};
           this.imagesObject.push(o);
         }
+        this.loadingFinished=true;
       }
     })
   }
+  loadingFinished:boolean=false;
   imagesObject:Array<Object>=[];
 
   logout(){

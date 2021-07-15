@@ -21,20 +21,29 @@ export class UserInfoComponent implements OnInit {
   isLoggedIn:boolean;
   user:User;
   u1:User;
+  loggedInUser:User;
   username:string;
   pictureSource:string;
   userForm:FormGroup=null;
   ngOnInit(): void {
     this.isLoggedIn=JSON.parse(localStorage.getItem('ulogovan'))!=null;
+    if(this.isLoggedIn){
+      this.loggedInUser=JSON.parse(localStorage.getItem("ulogovan"));
+      if(this.loggedInUser.userType=='agent'){
+        this.logout();
+      }
+    }
     if(!this.isLoggedIn){
       localStorage.clear();
       this.router.navigate(['/']);
 
     }else {
     this.username=this.route.snapshot.paramMap.get('username');
-    if(this.username!=null){this.notifier.notify('success', ""+this.username);
-  }
-    else {this.u1=JSON.parse(localStorage.getItem('ulogovan'));
+    if(this.username!=null){
+      this.notifier.notify('success', ""+this.username);
+    }
+    else {
+    this.u1=JSON.parse(localStorage.getItem('ulogovan'));
     this.username=this.u1.username;
   }
     this.userService.getUserFromUsername(this.username).subscribe((u:User)=>{
@@ -69,7 +78,7 @@ export class UserInfoComponent implements OnInit {
   update(){
     this.userService.updateUserInfo(this.user.username, this.name.value, this.surname.value, this.city.value, this.country.value).subscribe(res =>{
       if(res['message']=='userUpdated'){
-        this.notifier.notify('success', "User successfully updated");
+        this.notifier.notify('success', "Informacije uspjesno azurirane");
         this.userService.getUserFromUsername(this.u1.username).subscribe((u:User)=>{
       if(u){
         this.user=u;
@@ -94,7 +103,7 @@ export class UserInfoComponent implements OnInit {
         this.user.picture="../.." + path.substring(26).replace("\\", "/").replace("\\", "/").replace("\\", "/");
         this.userService.updatePhoto(this.user.username,"../.." + path.substring(26).replace("\\", "/").replace("\\", "/").replace("\\", "/")).subscribe(res=>{
           if(res['message']=='profilePhotoUpdated'){
-            this.notifier.notify("success", "profile photo updated")
+            this.notifier.notify("success", "Profilna slika azurirana!")
             this.pictureSource="../.." + path.substring(26).replace("\\", "/").replace("\\", "/").replace("\\", "/");
             this.user=JSON.parse(localStorage.getItem('ulogovan'));
             this.user.picture=this.pictureSource;

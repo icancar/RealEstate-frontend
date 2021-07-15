@@ -10,10 +10,10 @@
             close
         </mat-icon>
     </button>
-    <span>All estates</span>
-    <span class="example-spacer"></span>
+    <span>Pregled svih nekretnina</span>
+    <span class="menu-spacer"></span>
     <button mat-button class="example-icon" *ngIf='isLoggedIn' (click)='logout()'>
-      Log out
+        Odjava
     </button>
 </mat-toolbar>
 
@@ -21,13 +21,16 @@
     <mat-sidenav-container class="background-transparent" style="height: 100%;">
         <mat-sidenav  #drawer mode="over"  #sidenav class='sclass'>
             <br/><br/>
-            <button  mat-button routerLink='/welcomeAgent' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Home</button><br/><br/>
-            <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Change password</button><br/><br/>
-            <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Estate approval requests</button><br/><br/>
-            <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert estate</button><br/><br/>
-            <button  mat-button routerLink='/allEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">View all estates</button><br/><br/>
-            <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">My estates</button><br/><br/>
-        
+            <button  mat-button routerLink='/welcomeAgent' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pocetna stranica</button><br/><br/>
+            <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Promjena lozinke</button><br/><br/>
+            <button  mat-button routerLink='/editProfile' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Azuriranje profila</button><br/><br/> 
+            <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Zahtjevi za nekretnine</button><br/><br/>
+            <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Dodaj nekretninu</button><br/><br/>
+            <button  mat-button routerLink='/allEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pregled svih nekretnina</button><br/><br/>
+            <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Moje nekretnina</button><br/><br/>
+            <button  mat-button routerLink='/allTransactions' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pregled svih transakcija</button><br/><br/>
+            <button  mat-button routerLink='/allOffers' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pregled ponuda</button><br/><br/>
+            
         </mat-sidenav>
 
         <mat-sidenav-content>
@@ -52,28 +55,15 @@
                         </mat-card-content>
                         <mat-card-actions >
                           <button class="btn btn-primary" (click)="info(e.idAdvertisement)">INFO</button>
-                          <span *ngIf="!e.promoted && e.approved"><button mat-button (click)="promoteEstate(e.idAdvertisement)">PROMOTE</button></span>
-                          <span *ngIf="e.promoted && e.approved"><button mat-button (click)="unpromoteEstate(e.idAdvertisement)">UNPROMOTE</button></span>
+                          <span *ngIf="!e.promoted && e.approved && !e.sold"><button mat-button (click)="promoteEstate(e.idAdvertisement)">PROMOTE</button></span>
+                          <span *ngIf="e.promoted && e.approved && !e.sold"><button mat-button (click)="unpromoteEstate(e.idAdvertisement)">UNPROMOTE</button></span>
                         </mat-card-actions>
                     </mat-card>
                     </span>
                       
             
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-               
+          
             </div>
         </mat-sidenav-content>
     </mat-sidenav-container>
 </div>
-<notifier-container></notifier-container>

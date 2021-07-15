@@ -20,7 +20,7 @@ export class MyEstatesComponent implements OnInit {
     this.isLoggedIn=JSON.parse(localStorage.getItem("ulogovan"))!=null;
     if(this.isLoggedIn){
       this.user=JSON.parse(localStorage.getItem('ulogovan'));
-      if(this.user.userType=='agent'){
+      if(this.user.userType=='agent' || this.user.userType=='administrator'){
         this.username='agencija'
       }else this.username=this.user.username;
       this.estateService.getAllEstatesForUser(this.username).subscribe((e:Estate[])=>{
@@ -41,7 +41,7 @@ export class MyEstatesComponent implements OnInit {
 
   logout(){
     localStorage.clear();
-    this.router.navigate['/'];
+    this.router.navigate(['/']);
   }
 
   edit(id){

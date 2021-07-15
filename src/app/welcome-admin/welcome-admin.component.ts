@@ -109,7 +109,6 @@ export class WelcomeAdminComponent implements OnInit {
     this.estateService.getAllApprovedEstates().subscribe((e:Estate[])=>{
       if(e){
         this.estates=e;
-        this.notifier.notify("success", this.estates.length+"")
         this.prebrojStanove();
         this.prebrojKuce();
         this.cnt1=this.prebrojNekretnineUCjenovnomRanguStanovi(0,25000);

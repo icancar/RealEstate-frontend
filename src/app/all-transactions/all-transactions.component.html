@@ -9,10 +9,10 @@
             close
         </mat-icon>
     </button>
-    <span>All transactions</span>
+    <span>Pregled svih transakcija</span>
     <span class="menu-spacer"></span>
-    <button mat-icon-button class="example-icon" *ngIf='isLoggedIn'>
-      Log out
+    <button mat-icon-button class="example-icon" *ngIf='isLoggedIn' (click)="logout()">
+     Odjava
     </button>
 </mat-toolbar>
 
@@ -20,8 +20,32 @@
     <mat-sidenav-container class="background-transparent" style="height: 100%;">
         <mat-sidenav  #drawer mode="over"  #sidenav class='sclass'>
             <br/><br/>
-            <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Change password</button><br/><br/>
+            <button  mat-button routerLink='/' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pocetna stranica</button><br/><br/>
+            <span *ngIf="user.userType=='administrator'">
+                <button  mat-button routerLink='/registrationRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Zahtjevi za registraciju</button><br/><br/>
+            <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Zahtjevi za nekretnine</button><br/><br/>
+            <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Dodaj nekretninu</button><br/><br/>
+            <button  mat-button routerLink='/insertUser' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Dodaj korisnika</button><br/><br/>
+            <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Promjena lozinke</button><br/><br/>
+            <button  mat-button routerLink='/editProfile' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Azuriranje profila</button><br/><br/>     
+            <button  mat-button routerLink='/allUsers' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pregled svih korisnika</button><br/><br/>     
+            <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Moje nekretnine</button><br/><br/>
+            <button  mat-button routerLink='/updateFee' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Azuriraj procenat za posredovanje</button><br/><br/>
+            <button  mat-button routerLink='/allTransactions' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Sve transakcije</button><br/><br/>
+            <button  mat-button routerLink='/allOffers' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pregled ponuda</button><br/><br/>
             
+            </span>
+            <span *ngIf="user.userType=='agent'">
+                <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Promjena lozinke</button><br/><br/>
+                <button  mat-button routerLink='/editProfile' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Azuriranje profila</button><br/><br/> 
+                <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Zahtjevi za nekretnine</button><br/><br/>
+            <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Dodaj nekretninu</button><br/><br/>
+            <button  mat-button routerLink='/allEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pregled svih nekretnina</button><br/><br/>
+            <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Moje nekretnina</button><br/><br/>
+            <button  mat-button routerLink='/allTransactions' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pregled svih transakcija</button><br/><br/>
+            <button  mat-button routerLink='/allOffers' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pregled ponuda</button><br/><br/>
+            
+            </span>
         </mat-sidenav>
 
         <mat-sidenav-content>
@@ -55,6 +79,22 @@
                             <td>{{o.price}} [EUR]</td>
                             <td>{{o.transactionFees}} [EUR]</td>
                         </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> <b>Ukupno: </b> </td>
+                            <td>{{prihodProdaja}} [EUR]</td>
+                        </tr>
                       </table>
                       <table mat-table class="mat-elevation-z8" *ngIf="drugaTabela">
                         <tr>
@@ -76,6 +116,26 @@
                             <td>{{o.date2}}</td>
                             <td>{{o.price}} [EUR]</td>
                             <td>{{o.transactionFees}} [EUR]</td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> <b>Ukupno: </b> </td>
+                            <td>{{prihodIznajmljivanje}} [EUR]</td>
                         </tr>
                       </table>
                 </router-outlet>

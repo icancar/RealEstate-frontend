@@ -24,11 +24,20 @@ export class InsertUserComponent implements OnInit {
   submitted:boolean=false;
   picturePath:string;
   regForm:FormGroup;
-
+   loginuser:User;
   isLoggedIn:boolean;
   ngOnInit(): void {
     this.isLoggedIn=JSON.parse(localStorage.getItem('ulogovan'))!=null;
     this.submitted=false;
+    if(this.isLoggedIn){
+      this.loginuser=JSON.parse(localStorage.getItem("ulogovan"));
+      if(this.loginuser.userType!='administrator'){
+        localStorage.clear();
+        this.router.navigate(["/"]);
+      }
+    }else {
+      this.router.navigate(["/"]);
+    }
     this.regForm=new FormGroup({
       name: new FormControl("",[Validators.minLength(1), Validators.required]),
       surname: new FormControl("", [Validators.required,Validators.minLength(1)]),
@@ -58,7 +67,7 @@ export class InsertUserComponent implements OnInit {
 
   logout(){
     localStorage.clear();
-    this.router.navigate['/'];
+    this.router.navigate(['/']);
   }
 
   onPasswordChange() {
@@ -101,13 +110,13 @@ export class InsertUserComponent implements OnInit {
         let user = new User(name, surname, username, password,this.picturePath,email,city,country,true)
         this.userService.register(user).subscribe(res =>{
           if(res['message']=='userAdded'){
-            this.notifier.notify('success', "User added")
+            this.notifier.notify('success', "Korisnik dodat!")
           }
           else if(res['message']=='usernameExists'){
-            this.notifier.notify('warning', "Username already exists")
+            this.notifier.notify('warning', "Username je zauzeto")
           }
           else if(res['message']=='emailExists'){
-            this.notifier.notify('warning',"Email already exists")
+            this.notifier.notify('warning',"Email je zauzet")
           }
           else {
             this.notifier.notify('error', res['message']);
@@ -119,13 +128,13 @@ export class InsertUserComponent implements OnInit {
       let user = new User(name, surname, username, password, path,email,city,country,true);
         this.userService.register(user).subscribe(res =>{
           if(res['message']=='userAdded'){
-            this.notifier.notify('success', "User added");
+            this.notifier.notify('success', "Korisnik dodat!");
           }
           else if(res['message']=='usernameExists'){
-            this.notifier.notify('warning', "Username already exists");
+            this.notifier.notify('warning', "Username je zauzeto");
           }
           else if(res['message']=='emailExists'){
-            this.notifier.notify('warning',"Email already exists");
+            this.notifier.notify('warning',"Email je zauzet");
           }
           else {
             this.notifier.notify('error', res['message']);

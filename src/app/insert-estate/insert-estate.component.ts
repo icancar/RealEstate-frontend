@@ -30,7 +30,11 @@ export class InsertEstateComponent implements OnInit {
   ngOnInit(): void {
     this.isLoggedIn=JSON.parse(localStorage.getItem('ulogovan'))!=null;
     this.submitted=false;
-    this.user=JSON.parse(localStorage.getItem('ulogovan'));
+    if(this.isLoggedIn){
+      this.user=JSON.parse(localStorage.getItem('ulogovan'));
+    }else {
+      this.router.navigate(["/"]);
+    }
     this.estateForm=new FormGroup({
       name: new FormControl("",Validators.required),
       municipality: new FormControl("", Validators.required),
@@ -42,7 +46,7 @@ export class InsertEstateComponent implements OnInit {
       size: new FormControl("", Validators.required),
       typeOfEstate: new FormControl(""),
       numberOfFloors: new FormControl(""),
-      floorNumber: new FormControl("", Validators.required),
+      floorNumber: new FormControl("",),
       furniture: new FormControl(""),
       numberOfRooms: new FormControl("", Validators.required),
     })
@@ -97,7 +101,7 @@ export class InsertEstateComponent implements OnInit {
       if(this.estateForm.valid){ //sve je ok sa parametrima;
         this.fileService.uploadEstatePhotos(this.photosFile).subscribe((response)=>{
           if(response){ this.notifier.notify("success", "Slike uploadovane!");
-          if(this.user.userType=='agent'){
+          if(this.user.userType=='agent' ||this.user.userType=='administrator'){
             this.ownerUsername="agencija";
           }else {
             this.ownerUsername=this.user.username;
@@ -113,10 +117,9 @@ export class InsertEstateComponent implements OnInit {
             this.approvedBoolean=false;
           }
           let estate=new Estate(this.name.value,this.municipality.value,this.city.value,this.street.value,this.ownerUsername, this.streetNumber.value, this.typeOfAdvertisement.value,this.size.value, this.price.value,this.typeOfEstate.value,this.numberOfFloors.value,this.floorNumber.value,this.photos,this.furnitureBoolean,this.numberOfRooms.value,this.approvedBoolean );
-          this.notifier.notify("success", estate.toString());
           this.estateService.insertEstate(estate).subscribe(res =>{
             if(res['message']=='estateAdded'){
-              this.notifier.notify('success', "Estate added")
+              this.notifier.notify('success', "Nekretnina dodata!")
             }
             else {
               this.notifier.notify('error', res['message']);
@@ -131,7 +134,7 @@ export class InsertEstateComponent implements OnInit {
 
   logout(){
     localStorage.clear();
-    this.router.navigate['/'];
+    this.router.navigate(['/']);
   }
 
 

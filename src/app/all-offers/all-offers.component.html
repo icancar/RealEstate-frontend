@@ -9,10 +9,10 @@
             close
         </mat-icon>
     </button>
-    <span>All offers</span>
+    <span>Pregled ponuda</span>
     <span class="menu-spacer"></span>
     <button mat-icon-button class="example-icon" *ngIf='isLoggedIn' (click)="logout()">
-      Log out
+      Odjava
     </button>
 </mat-toolbar>
 
@@ -20,8 +20,40 @@
     <mat-sidenav-container class="background-transparent" style="height: 100%;">
         <mat-sidenav  #drawer mode="over"  #sidenav class='sclass'>
             <br/><br/>
-            <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Change password</button><br/><br/>
+            <button  mat-button routerLink='/' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pocetna stranica</button><br/><br/>
+            <span *ngIf="user.userType=='administrator'">
+                <button  mat-button routerLink='/registrationRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Zahtjevi za registraciju</button><br/><br/>
+            <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Zahtjevi za nekretnine</button><br/><br/>
+            <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Dodaj nekretninu</button><br/><br/>
+            <button  mat-button routerLink='/insertUser' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Dodaj korisnika</button><br/><br/>
+            <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Promjena lozinke</button><br/><br/>
+            <button  mat-button routerLink='/editProfile' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Azuriranje profila</button><br/><br/>     
+            <button  mat-button routerLink='/allUsers' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pregled svih korisnika</button><br/><br/>     
+            <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Moje nekretnine</button><br/><br/>
+            <button  mat-button routerLink='/updateFee' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Azuriraj procenat za posredovanje</button><br/><br/>
+            <button  mat-button routerLink='/allTransactions' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Sve transakcije</button><br/><br/>
+            <button  mat-button routerLink='/allOffers' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pregled ponuda</button><br/><br/>
             
+            </span>
+            <span *ngIf="user.userType=='agent'">
+                <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Promjena lozinke</button><br/><br/>
+                <button  mat-button routerLink='/editProfile' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Azuriranje profila</button><br/><br/> 
+                <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Zahtjevi za nekretnine</button><br/><br/>
+            <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Dodaj nekretninu</button><br/><br/>
+            <button  mat-button routerLink='/allEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pregled svih nekretnina</button><br/><br/>
+            <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Moje nekretnina</button><br/><br/>
+            <button  mat-button routerLink='/allTransactions' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pregled svih transakcija</button><br/><br/>
+            <button  mat-button routerLink='/allOffers' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pregled ponuda</button><br/><br/>
+            
+            </span>
+            <span *ngIf="user.userType=='korisnik'">
+                <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Promjena lozinke</button><br/><br/>
+            <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Moje nekretnine</button><br/><br/>
+            <button  mat-button routerLink='/editProfile' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Azuriranje profila</button><br/><br/>
+            <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Dodaj nekretninu</button><br/><br/>
+            <button  mat-button routerLink='/allOffers' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pregled ponuda</button><br/><br/>
+            
+            </span>
         </mat-sidenav>
 
         <mat-sidenav-content>
@@ -38,7 +70,7 @@
                         </ul>
                     </div>
 
-                    <table mat-table class="mat-elevation-z8" *ngIf="prvaTabela">
+                    <table mat-table class="mat-elevation-z8" *ngIf="prvaTabela && ready1">
                         <tr>
                             <th>Naziv oglasa:</th>
                             <th>Id oglasa:</th>
@@ -62,7 +94,7 @@
                              </td>
                         </tr>
                       </table>
-                      <table mat-table class="mat-elevation-z8" *ngIf="drugaTabela">
+                      <table mat-table class="mat-elevation-z8" *ngIf="drugaTabela && ready2">
                         <tr>
                             <th>Naziv oglasa:</th>
                             <th>Id oglasa:</th>
@@ -86,8 +118,8 @@
                             <td>{{o.price}} [EUR]</td>
                             <td>{{o.transactionFees}} [EUR]</td>
                             <td>
-                                <button mat-button class="button-accept" >Prihvati</button>&nbsp;&nbsp;
-                                <button mat-button class='button-decline'>Odbij</button>
+                                <button mat-button class="button-accept" (click)="acceptOfferRent(o.idOffer, o.idAdvertisement, o.offerFrom, o.offerTo, o.date1, o.date2)">Prihvati</button>&nbsp;&nbsp;
+                                <button mat-button class='button-decline' (click)="declineOfferSale(o.idOffer)">Odbij</button>
                             </td>
                         </tr>
                       </table>

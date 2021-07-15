@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
 import { EstateService } from '../estate.service';
 import { Estate } from '../models/estate';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-welcome-user',
@@ -24,14 +25,21 @@ export class WelcomeUserComponent implements OnInit {
   priceSearch:number;
   isLoggedIn:boolean
   maxPriceSale:number;
+  user:User;
   promotedEstates:Estate[];
   maxPriceRent:number;
+  loadingFinished:boolean=false;
   ngOnInit(): void {
     this.city=false;
     this.price=false;
     this.isLoggedIn=JSON.parse(localStorage.getItem('ulogovan'))!=null; 
     if(!this.isLoggedIn){
       this.router.navigate(["/"]);
+    }else {
+      this.user=JSON.parse(localStorage.getItem("ulogovan"));
+      if(this.user.userType!='korisnik'){
+        this.logout();
+      }
     }
     this.estateService.getAllApprovedEstates().subscribe((e:Estate[])=>{
       if(e){
@@ -58,6 +66,7 @@ export class WelcomeUserComponent implements OnInit {
           let o={image:this.promotedEstates[i].gallery[0],thumbImage:this.promotedEstates[i].gallery[0], alt:this.promotedEstates[i].idAdvertisement, title:this.promotedEstates[i].name};
           this.imagesObject.push(o);
         }
+        this.loadingFinished=true;
         
       }
     })

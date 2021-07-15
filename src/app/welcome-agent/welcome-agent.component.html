@@ -9,10 +9,10 @@
             close
         </mat-icon>
     </button>
-    <span>Estate Data</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon" *ngIf='isLoggedIn'>
-      Log out
+    <span>Welcome, agent</span>
+    <span class="menu-spacer"></span>
+    <button mat-icon-button class="example-icon" *ngIf='isLoggedIn' (click)="logout()">
+      Odjava
     </button>
 </mat-toolbar>
 
@@ -20,13 +20,15 @@
     <mat-sidenav-container class="background-transparent" style="height: 100%;">
         <mat-sidenav  #drawer mode="over"  #sidenav class='sclass'>
             <br/><br/>
-            <button  mat-button routerLink='/welcomeAgent' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Home</button><br/><br/>
-            <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Change password</button><br/><br/>
-            <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Estate approval requests</button><br/><br/>
-            <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Insert estate</button><br/><br/>
-            <button  mat-button routerLink='/allEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">View all estates</button><br/><br/>
-            <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">My estates</button><br/><br/>
-            <button  mat-button routerLink='/allTransactions' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">All transactions</button><br/><br/>
+            <button  mat-button routerLink='/welcomeAgent' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pocetna stranica</button><br/><br/>
+            <button  mat-button routerLink='/passwordChange' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Promjena lozinke</button><br/><br/>
+            <button  mat-button routerLink='/editProfile' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Azuriranje profila</button><br/><br/> 
+            <button  mat-button routerLink='/estateRequests' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Zahtjevi za nekretnine</button><br/><br/>
+            <button  mat-button routerLink='/insertEstate' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Dodaj nekretninu</button><br/><br/>
+            <button  mat-button routerLink='/allEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pregled svih nekretnina</button><br/><br/>
+            <button  mat-button routerLink='/myEstates' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Moje nekretnina</button><br/><br/>
+            <button  mat-button routerLink='/allTransactions' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pregled svih transakcija</button><br/><br/>
+            <button  mat-button routerLink='/allOffers' routerLinkActive="button-nav-selected" (click)='sidenav.close()' class="nav-button">Pregled ponuda</button><br/><br/>
             
         </mat-sidenav>
 
@@ -78,4 +80,3 @@
         </mat-sidenav-content>
     </mat-sidenav-container>
 </div>
-<notifier-container></notifier-container>

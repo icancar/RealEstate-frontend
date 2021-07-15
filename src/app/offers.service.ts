@@ -73,4 +73,16 @@ export class OffersService {
     return this.http.post(`${this.uri}/offers/getMyOffersRent`, data);
   }
 
+  acceptOfferRent(idOffer, idAdvertisement, offerFrom, offerTo, date1, date2){
+    const data={
+      idOffer:idOffer,
+      idAdvertisement:idAdvertisement,
+      offerFrom:offerFrom,
+      offerTo:offerTo,
+      date1:date1,
+      date2:date2
+    }
+    return this.http.post(`${this.uri}/offers/acceptOfferRent`, data);
+  }
+
 }
