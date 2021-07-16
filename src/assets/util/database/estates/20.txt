@@ -1,0 +1,30 @@
+{
+    "_id" : ObjectId("60f0067f3577b53098f2b016"),
+    "gallery" : [ 
+        "../../assets/properties/199568999.jpg", 
+        "../../assets/properties/199515877.jpg", 
+        "../../assets/properties/242909029.jpg", 
+        "../../assets/properties/199515739.jpg", 
+        "../../assets/properties/199515380.jpg"
+    ],
+    "name" : "Lux apartman u Cacku",
+    "municipality" : "Cacak",
+    "city" : "Cacak",
+    "street" : "Koce Andjelkovica",
+    "streetNumber" : "14",
+    "ownerUsername" : "agencija",
+    "typeOfAdvertisement" : "prodaja",
+    "price" : 80000,
+    "idAdvertisement" : 20,
+    "size" : 46,
+    "typeOfEstate" : "stan",
+    "numberOfFloors" : 4,
+    "floorNumber" : 4,
+    "furniture" : true,
+    "numberOfRooms" : 3,
+    "promoted" : false,
+    "approved" : true,
+    "sold" : false,
+    "views" : 0,
+    "__v" : 0
+}

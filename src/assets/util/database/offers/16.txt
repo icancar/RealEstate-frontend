@@ -1,0 +1,16 @@
+{
+    "_id" : ObjectId("60eff7713577b53098f2aff9"),
+    "typeOfOffer" : "prodaja",
+    "idAdvertisement" : 3,
+    "nameOfAdvertisement" : "Kuca u Beogradu",
+    "offerFrom" : "zeca1",
+    "offerTo" : "agencija",
+    "date1" : "",
+    "date2" : "",
+    "accepted" : true,
+    "transactionFees" : 0,
+    "status" : "finished",
+    "price" : 150000,
+    "idOffer" : "3-1",
+    "__v" : 0
+}

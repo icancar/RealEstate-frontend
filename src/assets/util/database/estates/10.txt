@@ -1,0 +1,29 @@
+{
+    "_id" : ObjectId("60eeae1a8eb549447c43b394"),
+    "gallery" : [ 
+        "../../assets/properties/ZS-lBLM-M_fss.jpg", 
+        "../../assets/properties/Q6-VmbOPo_fss.jpg", 
+        "../../assets/properties/C1C0avoel_fss.jpg", 
+        "../../assets/properties/vg3gW_iXt_fss.jpg"
+    ],
+    "name" : "Luksuzni stan na Lionu",
+    "municipality" : "Zvezdara",
+    "city" : "Beograd",
+    "street" : "Sabacka",
+    "streetNumber" : "1",
+    "ownerUsername" : "zeca1",
+    "typeOfAdvertisement" : "prodaja",
+    "price" : 80000,
+    "idAdvertisement" : 11,
+    "size" : 53,
+    "typeOfEstate" : "stan",
+    "numberOfFloors" : 9,
+    "floorNumber" : 2,
+    "furniture" : true,
+    "numberOfRooms" : 2,
+    "promoted" : false,
+    "approved" : true,
+    "sold" : false,
+    "views" : 0,
+    "__v" : 0
+}

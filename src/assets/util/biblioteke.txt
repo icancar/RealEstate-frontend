@@ -1,0 +1,13 @@
+Used librarys:
+
+Angular Material,
+Angular Notifier,
+Angular Multer,
+ng2-image-slider (komanda npm install ng-image-slider --save)
+Chart.js (komanda npm install chart.js)
+ng2-charts (komanda npm install ng2-charts)
+bootstrap (komanda npm install bootstrap)
+
+VAZNO: ukoliko biblioteke koje su vezane za chart.js ne budu htjele da se prevode, zbog kompatibilnosti verzija
+       odraditi sledecu komandu
+	npm install ng2-charts@v3.0.0-rc.3

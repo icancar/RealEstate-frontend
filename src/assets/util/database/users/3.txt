@@ -1,0 +1,14 @@
+{
+    "_id" : ObjectId("60e8c06d5027e1067c8ff419"),
+    "ime" : "Luka",
+    "prezime" : "Simovic",
+    "username" : "lule33",
+    "password" : "Csimiami123#",
+    "picture" : "../../assets/users/20160616_143614.jpg",
+    "email" : "luka.simovic@gmail.com",
+    "city" : "Nis",
+    "country" : "Srbija",
+    "userType" : "korisnik",
+    "accepted" : true,
+    "__v" : 0
+}

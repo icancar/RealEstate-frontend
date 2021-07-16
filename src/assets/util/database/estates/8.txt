@@ -1,0 +1,29 @@
+{
+    "_id" : ObjectId("60ec4de40b77152854025896"),
+    "gallery" : [ 
+        "../../assets/properties/5.jpg", 
+        "../../assets/properties/4.jpg", 
+        "../../assets/properties/3.jpg", 
+        "../../assets/properties/2.jpg"
+    ],
+    "name" : "Vikendica na Zlatiboru",
+    "municipality" : "Zlatibor",
+    "city" : "Uzice",
+    "street" : "Kralja Petra",
+    "streetNumber" : "123",
+    "ownerUsername" : "agencija",
+    "typeOfAdvertisement" : "prodaja",
+    "price" : 180000,
+    "idAdvertisement" : 9,
+    "size" : 45,
+    "typeOfEstate" : "kuca",
+    "numberOfFloors" : 1,
+    "floorNumber" : 2,
+    "furniture" : false,
+    "numberOfRooms" : 5,
+    "promoted" : true,
+    "sold" : true,
+    "approved" : true,
+    "views" : 0,
+    "__v" : 0
+}

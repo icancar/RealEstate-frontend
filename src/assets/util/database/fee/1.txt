@@ -1,0 +1,6 @@
+{
+    "_id" : ObjectId("60ed5cf26c06f125ab3c2417"),
+    "admin" : "icancar99",
+    "prodaja" : 6,
+    "iznajmljivanje" : 2
+}

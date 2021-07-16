@@ -1,0 +1,14 @@
+{
+    "_id" : ObjectId("60e8c14f5027e1067c8ff41a"),
+    "ime" : "Zeljko",
+    "prezime" : "Lucic",
+    "username" : "zeca1",
+    "password" : "Csimiami123#",
+    "picture" : "../../assets/users/vlcsnap-2021-06-10-11h58m29s446.png",
+    "email" : "zeljko.lucic9999@gmail.com",
+    "city" : "Nis",
+    "country" : "Srbija",
+    "userType" : "korisnik",
+    "accepted" : true,
+    "__v" : 0
+}

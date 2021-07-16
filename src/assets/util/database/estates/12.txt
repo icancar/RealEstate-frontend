@@ -1,0 +1,30 @@
+{
+    "_id" : ObjectId("60ef28d6d6c79e06580e5154"),
+    "gallery" : [ 
+        "../../assets/properties/2-hddshGsU_fss.jpg", 
+        "../../assets/properties/zMhyVJy3k_fss.jpg", 
+        "../../assets/properties/stGkt8gbm_fss.jpg", 
+        "../../assets/properties/LFhaEHBON_fss.jpg", 
+        "../../assets/properties/ufB58aaLb_fss.jpg"
+    ],
+    "name" : "Vertikala kuce sa dvoristem na Vracaru",
+    "municipality" : "Vracar",
+    "city" : "Beograd",
+    "street" : "Djordja Vajferta",
+    "streetNumber" : "8",
+    "ownerUsername" : "agencija",
+    "typeOfAdvertisement" : "prodaja",
+    "price" : 200000,
+    "idAdvertisement" : 13,
+    "size" : 120,
+    "typeOfEstate" : "kuca",
+    "numberOfFloors" : 2,
+    "floorNumber" : 3,
+    "furniture" : true,
+    "numberOfRooms" : 5,
+    "promoted" : false,
+    "approved" : true,
+    "sold" : true,
+    "views" : 0,
+    "__v" : 0
+}

@@ -1,0 +1,16 @@
+{
+    "_id" : ObjectId("60effd083577b53098f2b005"),
+    "typeOfOffer" : "prodaja",
+    "idAdvertisement" : 11,
+    "nameOfAdvertisement" : "Luksuzni stan na Lionu",
+    "offerFrom" : "milance",
+    "offerTo" : "zeca1",
+    "date1" : "",
+    "date2" : "",
+    "accepted" : false,
+    "transactionFees" : 2700,
+    "status" : "waiting",
+    "price" : 45000,
+    "idOffer" : "11-1",
+    "__v" : 0
+}

@@ -1,0 +1,29 @@
+{
+    "_id" : ObjectId("60e89e1b5027e1067c8ff415"),
+    "gallery" : [ 
+        "../../assets/properties/vojvode-vlahovica-kuca-u-nizu-uknjizena-id-16-5425636690475-71795988941.jpg", 
+        "../../assets/properties/vojvode-vlahovica-kuca-u-nizu-uknjizena-id-16-5425636690475-71795988937.jpg", 
+        "../../assets/properties/vojvode-vlahovica-kuca-u-nizu-uknjizena-id-16-5425636690475-71795988940.jpg", 
+        "../../assets/properties/vojvode-vlahovica-kuca-u-nizu-uknjizena-id-16-5425636690475-71795988938.jpg"
+    ],
+    "name" : "Kuca u Beogradu",
+    "city" : "Beograd",
+    "street" : "Vojvode Vlahovica",
+    "streetNumber" : "20",
+    "ownerUsername" : "agencija",
+    "typeOfAdvertisement" : "prodaja",
+    "price" : 174900,
+    "idAdvertisement" : 3,
+    "size" : 128,
+    "typeOfEstate" : "kuca",
+    "numberOfFloors" : 2,
+    "floorNumber" : 3,
+    "furniture" : true,
+    "numberOfRooms" : 3,
+    "promoted" : false,
+    "approved" : true,
+    "sold" : true,
+    "views" : 0,
+    "__v" : 0,
+    "municipality" : "Vozdovac"
+}

@@ -1,0 +1,16 @@
+{
+    "_id" : ObjectId("60ee045d8c0ca7419cc261ff"),
+    "typeOfOffer" : "prodaja",
+    "idAdvertisement" : 4,
+    "nameOfAdvertisement" : "Kuca na Zvezdari",
+    "offerFrom" : "icancar99",
+    "offerTo" : "icancar99",
+    "date1" : "",
+    "date2" : "",
+    "accepted" : true,
+    "transactionFees" : 3960,
+    "status" : "finished",
+    "price" : 99000,
+    "idOffer" : "4-4",
+    "__v" : 0
+}

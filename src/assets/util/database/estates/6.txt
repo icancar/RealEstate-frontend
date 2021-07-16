@@ -1,0 +1,29 @@
+{
+    "_id" : ObjectId("60e9fa46b691f31c10c3e90b"),
+    "gallery" : [ 
+        "../../assets/properties/20160616_165614.jpg", 
+        "../../assets/properties/20160616_165618.jpg", 
+        "../../assets/properties/20160616_165620.jpg", 
+        "../../assets/properties/20160616_170935.jpg"
+    ],
+    "name" : "Kuca na Ledinama",
+    "city" : "Beograd",
+    "municipality" : "Zemun",
+    "street" : "Ledine ",
+    "streetNumber" : "bb",
+    "ownerUsername" : "agencija",
+    "typeOfAdvertisement" : "iznajmljivanje",
+    "price" : 150,
+    "idAdvertisement" : 7,
+    "size" : 26,
+    "typeOfEstate" : "kuca",
+    "numberOfFloors" : 3,
+    "floorNumber" : 2,
+    "furniture" : true,
+    "numberOfRooms" : 6,
+    "promoted" : true,
+    "approved" : true,
+    "sold" : false,
+    "views" : 0,
+    "__v" : 0
+}

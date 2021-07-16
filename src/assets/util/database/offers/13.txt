@@ -1,0 +1,16 @@
+{
+    "_id" : ObjectId("60eff584dd33611e6891e0cc"),
+    "typeOfOffer" : "prodaja",
+    "idAdvertisement" : 5,
+    "nameOfAdvertisement" : "Kuca na Petrovaradinu",
+    "offerFrom" : "zeca1",
+    "offerTo" : "agencija",
+    "date1" : "",
+    "date2" : "",
+    "accepted" : true,
+    "transactionFees" : 0,
+    "status" : "finished",
+    "price" : 150000,
+    "idOffer" : "5-1",
+    "__v" : 0
+}

@@ -1,0 +1,14 @@
+{
+    "_id" : ObjectId("60ec202cca876d2e40a49f90"),
+    "ime" : "Zdravko",
+    "prezime" : "Milenkovic",
+    "username" : "zdravko123",
+    "password" : "aquaViva1#",
+    "picture" : "../../assets/users/IMG_3360.JPG",
+    "email" : "zdravko99@gmail.com",
+    "city" : "Bor",
+    "country" : "Srbija",
+    "userType" : "korisnik",
+    "accepted" : true,
+    "__v" : 0
+}

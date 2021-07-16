@@ -1,0 +1,29 @@
+{
+    "_id" : ObjectId("60f0056d3577b53098f2b014"),
+    "gallery" : [ 
+        "../../assets/properties/230097017.jpg", 
+        "../../assets/properties/230097551.jpg", 
+        "../../assets/properties/230097542.jpg", 
+        "../../assets/properties/209404754.jpg"
+    ],
+    "name" : "Kuca u okolini Nisa",
+    "municipality" : "Nis",
+    "city" : "Nis",
+    "street" : "Kralja Dragutina",
+    "streetNumber" : "12",
+    "ownerUsername" : "agencija",
+    "typeOfAdvertisement" : "prodaja",
+    "price" : 65000,
+    "idAdvertisement" : 18,
+    "size" : 120,
+    "typeOfEstate" : "kuca",
+    "numberOfFloors" : 2,
+    "floorNumber" : null,
+    "furniture" : true,
+    "numberOfRooms" : 5,
+    "promoted" : false,
+    "approved" : true,
+    "sold" : false,
+    "views" : 0,
+    "__v" : 0
+}

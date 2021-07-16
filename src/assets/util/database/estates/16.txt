@@ -1,0 +1,31 @@
+{
+    "_id" : ObjectId("60f0041e3577b53098f2b012"),
+    "gallery" : [ 
+        "../../assets/properties/O7owXnOis_fss.jpg", 
+        "../../assets/properties/wh3U8_Zku_fss.jpg", 
+        "../../assets/properties/iXSD60dwO_fss.jpg", 
+        "../../assets/properties/BfBOFost3_fss.jpg", 
+        "../../assets/properties/9YPWRxEuj_fss.jpg", 
+        "../../assets/properties/OLgFFcS7N_fss.jpg"
+    ],
+    "name" : "Stan u centru",
+    "municipality" : "Stari Grad",
+    "city" : "Beograd",
+    "street" : "Majke Jevrosime",
+    "streetNumber" : "13",
+    "ownerUsername" : "agencija",
+    "typeOfAdvertisement" : "prodaja",
+    "price" : 175000,
+    "idAdvertisement" : 16,
+    "size" : 77,
+    "typeOfEstate" : "stan",
+    "numberOfFloors" : 4,
+    "floorNumber" : 2,
+    "furniture" : false,
+    "numberOfRooms" : 3,
+    "promoted" : false,
+    "approved" : true,
+    "sold" : false,
+    "views" : 0,
+    "__v" : 0
+}

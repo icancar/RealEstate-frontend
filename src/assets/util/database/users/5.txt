@@ -1,0 +1,14 @@
+{
+    "_id" : ObjectId("60e8c2465027e1067c8ff41b"),
+    "ime" : "Dusan",
+    "prezime" : "Licina",
+    "username" : "lic99",
+    "password" : "Niksickopivo19#",
+    "picture" : "../../assets/users/genericProfilePhoto.png",
+    "email" : "licina99@gmail.com",
+    "city" : "Beograd",
+    "country" : "Srbija",
+    "userType" : "korisnik",
+    "accepted" : true,
+    "__v" : 0
+}

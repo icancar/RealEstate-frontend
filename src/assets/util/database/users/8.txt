@@ -1,0 +1,14 @@
+{
+    "_id" : ObjectId("60ec428e5208763c903299b0"),
+    "ime" : "Marko",
+    "prezime" : "Radovic",
+    "username" : "marke123321",
+    "password" : "Markorad123#",
+    "picture" : "../../assets/users/genericProfilePhoto.png",
+    "email" : "marko123@gmail.com",
+    "city" : "Subotica",
+    "country" : "Srbija",
+    "userType" : "korisnik",
+    "accepted" : true,
+    "__v" : 0
+}

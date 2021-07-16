@@ -1,0 +1,14 @@
+{
+    "_id" : ObjectId("60eff8cb3577b53098f2affa"),
+    "ime" : "Milan",
+    "prezime" : "Zivkovic",
+    "username" : "milance",
+    "password" : "Milan13#",
+    "picture" : "../../assets/users/genericProfilePhoto.png",
+    "email" : "milan00@gmail.com",
+    "city" : "Beograd",
+    "country" : "Srbija",
+    "userType" : "korisnik",
+    "accepted" : true,
+    "__v" : 0
+}

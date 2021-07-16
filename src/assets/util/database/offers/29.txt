@@ -1,0 +1,16 @@
+{
+    "_id" : ObjectId("60effde23577b53098f2b008"),
+    "typeOfOffer" : "prodaja",
+    "idAdvertisement" : 13,
+    "nameOfAdvertisement" : "Vertikala kuce sa dvoristem na Vracaru",
+    "offerFrom" : "zeca1",
+    "offerTo" : "agencija",
+    "date1" : "",
+    "date2" : "",
+    "accepted" : true,
+    "transactionFees" : 0,
+    "status" : "finished",
+    "price" : 150000,
+    "idOffer" : "13-3",
+    "__v" : 0
+}

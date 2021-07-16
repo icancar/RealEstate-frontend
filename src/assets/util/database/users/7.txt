@@ -1,0 +1,14 @@
+{
+    "_id" : ObjectId("60ec42285208763c903299af"),
+    "ime" : "Petar",
+    "prezime" : "Petrovic",
+    "username" : "petar123",
+    "password" : "Mismali123#",
+    "picture" : "../../assets/users/4.jpg",
+    "email" : "petar123@gmail.com",
+    "city" : "Sombor",
+    "country" : "Srbija",
+    "userType" : "korisnik",
+    "accepted" : true,
+    "__v" : 0
+}

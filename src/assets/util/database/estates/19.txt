@@ -1,0 +1,31 @@
+{
+    "_id" : ObjectId("60f005f63577b53098f2b015"),
+    "gallery" : [ 
+        "../../assets/properties/262636154.jpg", 
+        "../../assets/properties/262636181.jpg", 
+        "../../assets/properties/262636185.jpg", 
+        "../../assets/properties/262636208.jpg", 
+        "../../assets/properties/262636727.jpg", 
+        "../../assets/properties/122279741.jpg"
+    ],
+    "name" : "Apartman u Subotici",
+    "municipality" : "Subotica",
+    "city" : "Subotica",
+    "street" : "Brace Radic ",
+    "streetNumber" : "6",
+    "ownerUsername" : "agencija",
+    "typeOfAdvertisement" : "iznajmljivanje",
+    "price" : 200,
+    "idAdvertisement" : 19,
+    "size" : 45,
+    "typeOfEstate" : "stan",
+    "numberOfFloors" : 4,
+    "floorNumber" : 2,
+    "furniture" : true,
+    "numberOfRooms" : 2,
+    "promoted" : false,
+    "approved" : true,
+    "sold" : false,
+    "views" : 0,
+    "__v" : 0
+}

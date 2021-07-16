@@ -1,0 +1,16 @@
+{
+    "_id" : ObjectId("60effcfd3577b53098f2b004"),
+    "typeOfOffer" : "prodaja",
+    "idAdvertisement" : 1,
+    "nameOfAdvertisement" : "Stan na Altini",
+    "offerFrom" : "milance",
+    "offerTo" : "agencija",
+    "date1" : "",
+    "date2" : "",
+    "accepted" : false,
+    "transactionFees" : 0,
+    "status" : "declined",
+    "price" : 78000,
+    "idOffer" : "1-1",
+    "__v" : 0
+}

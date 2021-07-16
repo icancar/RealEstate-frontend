@@ -1,0 +1,14 @@
+{
+    "_id" : ObjectId("60ef3844d6c79e06580e5156"),
+    "ime" : "Nikola",
+    "prezime" : "Markovic",
+    "username" : "dzoni123",
+    "password" : "Yamahaf370#",
+    "picture" : "../../assets/users/genericProfilePhoto.png",
+    "email" : "dzoni56@gmail.com",
+    "city" : "Novi Pazar",
+    "country" : "Srbija",
+    "userType" : "korisnik",
+    "accepted" : false,
+    "__v" : 0
+}

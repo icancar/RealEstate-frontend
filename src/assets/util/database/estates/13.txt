@@ -1,0 +1,31 @@
+{
+    "_id" : ObjectId("60ef2b46d6c79e06580e5155"),
+    "gallery" : [ 
+        "../../assets/properties/ECqRAn-br_fss.jpg", 
+        "../../assets/properties/25DG3DIht_fss.jpg", 
+        "../../assets/properties/tbXtG-U3y_fss.jpg", 
+        "../../assets/properties/Kdx8tjp3q_fss.jpg", 
+        "../../assets/properties/OlCtuCV2v_fss.jpg", 
+        "../../assets/properties/aEv2RRQWf_fss.jpg"
+    ],
+    "name" : "Kuca  u Lipovackoj sumi",
+    "municipality" : "Barajevo",
+    "city" : "Beograd",
+    "street" : "Barajevo",
+    "streetNumber" : "bb",
+    "ownerUsername" : "agencija",
+    "typeOfAdvertisement" : "prodaja",
+    "price" : 57000,
+    "idAdvertisement" : 14,
+    "size" : 80,
+    "typeOfEstate" : "kuca",
+    "numberOfFloors" : 2,
+    "floorNumber" : null,
+    "furniture" : true,
+    "numberOfRooms" : 5,
+    "promoted" : true,
+    "approved" : true,
+    "sold" : true,
+    "views" : 0,
+    "__v" : 0
+}

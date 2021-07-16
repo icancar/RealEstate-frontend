@@ -1,0 +1,16 @@
+{
+    "_id" : ObjectId("60effe003577b53098f2b00c"),
+    "typeOfOffer" : "prodaja",
+    "idAdvertisement" : 2,
+    "nameOfAdvertisement" : "Stan na Novom Beogradu",
+    "offerFrom" : "zeca1",
+    "offerTo" : "agencija",
+    "date1" : "",
+    "date2" : "",
+    "accepted" : false,
+    "transactionFees" : 0,
+    "status" : "declined",
+    "price" : 150000,
+    "idOffer" : "2-1",
+    "__v" : 0
+}

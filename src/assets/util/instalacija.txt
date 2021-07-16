@@ -1,0 +1,14 @@
+Backend:
+
+	npm install --save multer
+	npm install @types/multer
+
+Frontend: 
+
+	ng add @angular/material (deep purple, yes, yes)
+	npm install angular-notifier
+	npm install ng-image-slider --save
+	npm install chart.js
+	npm install ng2-charts
+	npm install bootstrap
+	npm install ng2-charts@v3.0.0-rc.3

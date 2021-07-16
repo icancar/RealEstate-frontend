@@ -1,0 +1,31 @@
+{
+    "_id" : ObjectId("60e8a01e5027e1067c8ff417"),
+    "gallery" : [ 
+        "../../assets/properties/e52ad5c9f751f599492b4f087ed7ecfc.jpg", 
+        "../../assets/properties/4c92d46d3b1aad8a64eb35d7312d067c.jpg", 
+        "../../assets/properties/eb9fc349601c69352c859c1faa287874.jpg", 
+        "../../assets/properties/d3c95acb3f4a091abb1fdc056dc68c1c.jpg", 
+        "../../assets/properties/0a7d83f084ec258aefd128569dda03d7.jpg", 
+        "../../assets/properties/ad972f10e0800b49d76fed33a21f6698.jpg"
+    ],
+    "name" : "Kuca na Petrovaradinu",
+    "city" : "Novi Sad",
+    "municipality" : "Petrovaradin",
+    "street" : "Petrovaradin",
+    "streetNumber" : "bb",
+    "ownerUsername" : "agencija",
+    "typeOfAdvertisement" : "prodaja",
+    "price" : 145500,
+    "idAdvertisement" : 5,
+    "size" : 126,
+    "typeOfEstate" : "kuca",
+    "numberOfFloors" : 2,
+    "floorNumber" : 2,
+    "furniture" : false,
+    "numberOfRooms" : 3,
+    "sold" : true,
+    "promoted" : false,
+    "approved" : true,
+    "views" : 0,
+    "__v" : 0
+}

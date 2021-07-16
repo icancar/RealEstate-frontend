@@ -1,0 +1,28 @@
+{
+    "_id" : ObjectId("60ec4eff9d3874296094bd97"),
+    "gallery" : [ 
+        "../../assets/properties/3.jpg", 
+        "../../assets/properties/2.jpg", 
+        "../../assets/properties/1.jpg"
+    ],
+    "name" : "Kuca na Fruskoj gori",
+    "municipality" : "Fruska gora",
+    "city" : "Novi Sad",
+    "street" : "Fruska gora",
+    "streetNumber" : "123321",
+    "ownerUsername" : "agencija",
+    "typeOfAdvertisement" : "prodaja",
+    "price" : 45000,
+    "idAdvertisement" : 10,
+    "size" : 75,
+    "typeOfEstate" : "kuca",
+    "numberOfFloors" : 3,
+    "floorNumber" : 2,
+    "furniture" : true,
+    "numberOfRooms" : 5,
+    "promoted" : true,
+    "approved" : true,
+    "sold" : true,
+    "views" : 0,
+    "__v" : 0
+}

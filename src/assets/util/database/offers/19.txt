@@ -1,0 +1,16 @@
+{
+    "_id" : ObjectId("60eff9c93577b53098f2affe"),
+    "typeOfOffer" : "iznajmljivanje",
+    "idAdvertisement" : 15,
+    "nameOfAdvertisement" : "Stan za izdavanje",
+    "offerFrom" : "milenko123",
+    "offerTo" : "milance",
+    "date1" : "2021-06-30",
+    "date2" : "2021-07-30",
+    "accepted" : true,
+    "transactionFees" : 30,
+    "status" : "accepted",
+    "price" : 500,
+    "idOffer" : "15-3",
+    "__v" : 0
+}

@@ -1,0 +1,16 @@
+{
+    "_id" : ObjectId("60eebea014d7b03e703e6c38"),
+    "typeOfOffer" : "iznajmljivanje",
+    "idAdvertisement" : 8,
+    "nameOfAdvertisement" : "Vila na Dedinju",
+    "offerFrom" : "icancar99",
+    "offerTo" : "icancar99",
+    "date1" : "2021-06-30",
+    "date2" : "2021-07-01",
+    "accepted" : true,
+    "transactionFees" : 5.8,
+    "status" : "accepted",
+    "price" : 145,
+    "idOffer" : "8-17",
+    "__v" : 0
+}

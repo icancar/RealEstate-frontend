@@ -1,0 +1,14 @@
+{
+    "_id" : ObjectId("60ec43465208763c903299bd"),
+    "ime" : "Milenko",
+    "prezime" : "Petrovic",
+    "username" : "milenko123",
+    "password" : "Milenko123#",
+    "picture" : "../../assets/users/genericProfilePhoto.png",
+    "email" : "milenko87@gmail.com",
+    "city" : "Uzice",
+    "country" : "Srbija",
+    "userType" : "korisnik",
+    "accepted" : true,
+    "__v" : 0
+}

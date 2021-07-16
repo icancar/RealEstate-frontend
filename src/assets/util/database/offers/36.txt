@@ -1,0 +1,16 @@
+{
+    "_id" : ObjectId("60f001b03577b53098f2b00f"),
+    "typeOfOffer" : "prodaja",
+    "idAdvertisement" : 9,
+    "nameOfAdvertisement" : "Vikendica na Zlatiboru",
+    "offerFrom" : "zeca1",
+    "offerTo" : "agencija",
+    "date1" : "",
+    "date2" : "",
+    "accepted" : true,
+    "transactionFees" : 0,
+    "status" : "finished",
+    "price" : 60000,
+    "idOffer" : "9-2",
+    "__v" : 0
+}

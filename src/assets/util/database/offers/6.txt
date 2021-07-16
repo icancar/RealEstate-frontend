@@ -1,0 +1,16 @@
+{
+    "_id" : ObjectId("60eeb12f2f02d027805db2aa"),
+    "typeOfOffer" : "prodaja",
+    "idAdvertisement" : 12,
+    "nameOfAdvertisement" : "Dvosoban stan na Limanu",
+    "offerFrom" : "zeca1",
+    "offerTo" : "zeca1",
+    "date1" : "",
+    "date2" : "",
+    "accepted" : true,
+    "transactionFees" : 4000,
+    "status" : "finished",
+    "price" : 100000,
+    "idOffer" : "12-1",
+    "__v" : 0
+}

@@ -1,0 +1,30 @@
+{
+    "_id" : ObjectId("60eff9573577b53098f2affb"),
+    "gallery" : [ 
+        "../../assets/properties/IMG-20210710-WA0004.jpg", 
+        "../../assets/properties/IMG-20210710-WA0006.jpg", 
+        "../../assets/properties/IMG-20210710-WA0005.jpg", 
+        "../../assets/properties/IMG-20210710-WA0007.jpg", 
+        "../../assets/properties/IMG-20210710-WA0002.jpg"
+    ],
+    "name" : "Stan za izdavanje",
+    "municipality" : "Novi Sad",
+    "city" : "Novi Sad",
+    "street" : "Bulevar Evrope",
+    "streetNumber" : "15",
+    "ownerUsername" : "milance",
+    "typeOfAdvertisement" : "iznajmljivanje",
+    "price" : 500,
+    "idAdvertisement" : 15,
+    "size" : 39,
+    "typeOfEstate" : "stan",
+    "numberOfFloors" : 5,
+    "floorNumber" : 3,
+    "furniture" : true,
+    "numberOfRooms" : 2,
+    "promoted" : true,
+    "approved" : true,
+    "sold" : false,
+    "views" : 0,
+    "__v" : 0
+}

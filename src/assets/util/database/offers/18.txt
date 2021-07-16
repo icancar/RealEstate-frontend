@@ -1,0 +1,16 @@
+{
+    "_id" : ObjectId("60eff9a63577b53098f2affd"),
+    "typeOfOffer" : "iznajmljivanje",
+    "idAdvertisement" : 15,
+    "nameOfAdvertisement" : "Stan za izdavanje",
+    "offerFrom" : "lic99",
+    "offerTo" : "milance",
+    "date1" : "2021-07-20",
+    "date2" : "2021-07-23",
+    "accepted" : false,
+    "transactionFees" : 30,
+    "status" : "waiting",
+    "price" : 500,
+    "idOffer" : "15-2",
+    "__v" : 0
+}

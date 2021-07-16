@@ -1,0 +1,13 @@
+{
+    "_id" : ObjectId("60e2ab9cdee03f4407145dff"),
+    "ime" : "Igor",
+    "prezime" : "Cancar",
+    "username" : "icancar99",
+    "password" : "Csimiami123#",
+    "picture" : "../../assets/users/IMG-0a2c50bd381903a01442a15fd83d82e7-V.jpg",
+    "email" : "icancar99@gmail.com",
+    "city" : "Beograd",
+    "country" : "BiH",
+    "userType" : "administrator",
+    "accepted" : true
+}

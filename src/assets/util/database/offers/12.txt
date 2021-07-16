@@ -1,0 +1,16 @@
+{
+    "_id" : ObjectId("60ef57368201a32cf01084e5"),
+    "typeOfOffer" : "prodaja",
+    "idAdvertisement" : 14,
+    "nameOfAdvertisement" : "Kuca  u Lipovackoj sumi",
+    "offerFrom" : "zeca1",
+    "offerTo" : "agencija",
+    "date1" : "",
+    "date2" : "",
+    "accepted" : true,
+    "transactionFees" : 3480,
+    "status" : "finished",
+    "price" : 58000,
+    "idOffer" : "14-1",
+    "__v" : 0
+}

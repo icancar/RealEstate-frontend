@@ -1,0 +1,28 @@
+{
+    "_id" : ObjectId("60e89ed45027e1067c8ff416"),
+    "gallery" : [ 
+        "../../assets/properties/E7rz_2ksd_fss.jpg", 
+        "../../assets/properties/JVW7QZAgu_fss.jpg", 
+        "../../assets/properties/H2ECT9rOv_fss.jpg"
+    ],
+    "name" : "Kuca na Zvezdari",
+    "city" : "Beograd",
+    "municipality" : "Zvezdara",
+    "street" : "Madridska",
+    "streetNumber" : "25",
+    "ownerUsername" : "agencija",
+    "typeOfAdvertisement" : "prodaja",
+    "price" : 123,
+    "idAdvertisement" : 4,
+    "size" : 38,
+    "typeOfEstate" : "stan",
+    "numberOfFloors" : 3,
+    "floorNumber" : 2,
+    "furniture" : true,
+    "numberOfRooms" : 5,
+    "promoted" : true,
+    "approved" : true,
+    "sold" : true,
+    "views" : 0,
+    "__v" : 0
+}

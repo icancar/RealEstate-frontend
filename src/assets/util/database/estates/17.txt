@@ -1,0 +1,30 @@
+{
+    "_id" : ObjectId("60f004e53577b53098f2b013"),
+    "gallery" : [ 
+        "../../assets/properties/214828626.jpg", 
+        "../../assets/properties/214828542.jpg", 
+        "../../assets/properties/214828647.jpg", 
+        "../../assets/properties/214828664.jpg", 
+        "../../assets/properties/304344368.jpg"
+    ],
+    "name" : "Vikendica na Tari",
+    "municipality" : "Tara",
+    "city" : "Tara",
+    "street" : "Zaovine",
+    "streetNumber" : "3",
+    "ownerUsername" : "lic99",
+    "typeOfAdvertisement" : "iznajmljivanje",
+    "price" : 150,
+    "idAdvertisement" : 17,
+    "size" : 65,
+    "typeOfEstate" : "kuca",
+    "numberOfFloors" : 2,
+    "floorNumber" : null,
+    "furniture" : true,
+    "numberOfRooms" : 3,
+    "promoted" : false,
+    "approved" : false,
+    "sold" : false,
+    "views" : 0,
+    "__v" : 0
+}

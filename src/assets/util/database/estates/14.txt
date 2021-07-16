@@ -1,0 +1,29 @@
+{
+    "_id" : ObjectId("60ef41ab14cf8ae599a2a111"),
+    "name" : "Stan na Altini",
+    "municipality" : "Zemun",
+    "city" : "Beograd",
+    "street" : "Ugrinovacki put",
+    "streetNumber" : "20",
+    "ownerUsername" : "agencija",
+    "typeOfAdvertisement" : "prodaja",
+    "price" : 45000,
+    "idAdvertisement" : 1,
+    "size" : 45,
+    "typeOfEstate" : "stan",
+    "numberOfFloors" : 5,
+    "floorNumber" : 1,
+    "gallery" : [ 
+        "../../assets/properties/d80b7040b773199015de6d3b4293c8ff_wm.jpg", 
+        "../../assets/properties/dde16b86c64390f0af01275a44d3a42d_wm.jpg", 
+        "../../assets/properties/c5b2cebf15b205503560c4e8e6d1ea78_wm.jpg", 
+        "../../assets/properties/ca75910166da03ff9d4655a0338e6b09_wm.jpg", 
+        "../../assets/properties/e077e1a544eec4f0307cf5c3c721d944_wm.jpg"
+    ],
+    "furniture" : true,
+    "numberOfRooms" : 1.5,
+    "promoted" : true,
+    "approved" : true,
+    "sold" : false,
+    "views" : 0
+}

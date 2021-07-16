@@ -1,0 +1,13 @@
+{
+    "_id" : ObjectId("60e2abd8dee03f4407145e0f"),
+    "ime" : "Luka",
+    "prezime" : "Simovic",
+    "username" : "simke63",
+    "password" : "simovic",
+    "picture" : "assets/users/genericProfilePhoto.png",
+    "email" : "simke63@gmail.com",
+    "city" : "Beograd",
+    "country" : "Srbija",
+    "userType" : "agent",
+    "accepted" : true
+}

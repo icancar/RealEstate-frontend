@@ -1,0 +1,29 @@
+{
+    "_id" : ObjectId("60e6d3f5dee03f440714cb26"),
+    "name" : "Stan na Novom Beogradu",
+    "municipality" : "Novi Beograd",
+    "city" : "Beograd",
+    "street" : "Bulevar Mihaila Pupina",
+    "streetNumber" : "20",
+    "ownerUsername" : "agencija",
+    "typeOfAdvertisement" : "prodaja",
+    "price" : 180000,
+    "idAdvertisement" : 2,
+    "size" : 58,
+    "typeOfEstate" : "stan",
+    "numberOfFloors" : 3,
+    "floorNumber" : 5,
+    "gallery" : [ 
+        "../../assets/properties/01a0683665f38d8e5e567b3b15ca98bf.jpg", 
+        "../../assets/properties/db6ebd0566994d14a1767f14eb6fba81.jpg", 
+        "../../assets/properties/6e7d5d259be7bf56ed79029c4e621f44.jpg", 
+        "../../assets/properties/da4902cb0bc38210839714ebdcf0efc3.jpg", 
+        "../../assets/properties/dcacff2565700c8f88f59cf4a16f9dfc.jpg"
+    ],
+    "furniture" : true,
+    "numberOfRooms" : 1,
+    "promoted" : false,
+    "approved" : true,
+    "sold" : false,
+    "views" : 0
+}

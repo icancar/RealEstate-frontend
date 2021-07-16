@@ -1,0 +1,30 @@
+{
+    "_id" : ObjectId("60eeb0cd2f02d027805db2a9"),
+    "gallery" : [ 
+        "../../assets/properties/SR2Kl2lqC_fss.jpg", 
+        "../../assets/properties/Cnl-65Bxo_fss.jpg", 
+        "../../assets/properties/Sck7QbGF9_fss.jpg", 
+        "../../assets/properties/U9AzM3aF0_fss.jpg", 
+        "../../assets/properties/LTGpsIkOE_fss.jpg"
+    ],
+    "name" : "Dvosoban stan na Limanu",
+    "municipality" : "Liman",
+    "city" : "Novi Sad",
+    "street" : "Bulevar Oslobodjenja",
+    "streetNumber" : "78",
+    "ownerUsername" : "zeca1",
+    "typeOfAdvertisement" : "prodaja",
+    "price" : 120000,
+    "idAdvertisement" : 12,
+    "size" : 77,
+    "typeOfEstate" : "stan",
+    "numberOfFloors" : 5,
+    "floorNumber" : 3,
+    "furniture" : true,
+    "numberOfRooms" : 3,
+    "promoted" : true,
+    "approved" : true,
+    "sold" : true,
+    "views" : 0,
+    "__v" : 0
+}

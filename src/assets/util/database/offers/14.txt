@@ -1,0 +1,16 @@
+{
+    "_id" : ObjectId("60eff58cdd33611e6891e0cd"),
+    "typeOfOffer" : "prodaja",
+    "idAdvertisement" : 6,
+    "nameOfAdvertisement" : "Stan kod pijace Djeram",
+    "offerFrom" : "zeca1",
+    "offerTo" : "agencija",
+    "date1" : "",
+    "date2" : "",
+    "accepted" : true,
+    "transactionFees" : 0,
+    "status" : "finished",
+    "price" : 30000,
+    "idOffer" : "6-1",
+    "__v" : 0
+}
