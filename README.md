@@ -25,7 +25,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Library instalation
 
 To install all the library used in this Angular project, you'll need to run these commands
-      1. ng add @angular/material (deep purple, yes, yes)
+      1. ng add @angular/material (deep purple, yes, yes) <br/>
 	    2. npm install angular-notifier
 	    3. npm install ng-image-slider --save
 	    4. npm install chart.js
