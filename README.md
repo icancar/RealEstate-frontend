@@ -22,6 +22,13 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+## Library instalation
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+To install all the library used in this Angular project, you'll need to run these commands
+      1. ng add @angular/material (deep purple, yes, yes)
+	    2. npm install angular-notifier
+	    3. npm install ng-image-slider --save
+	    4. npm install chart.js
+	    5. npm install ng2-charts
+	    6. npm install bootstrap
+	    7. npm install ng2-charts@v3.0.0-rc.3 (because of versions of project and versions of ng2-chrats)
