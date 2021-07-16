@@ -24,11 +24,11 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ## Library instalation
 
-To install all the library used in this Angular project, you'll need to run these commands
+To install all the library used in this Angular project, you'll need to run these commands: <br/>
       1. ng add @angular/material (deep purple, yes, yes) <br/>
-	    2. npm install angular-notifier
-	    3. npm install ng-image-slider --save
-	    4. npm install chart.js
-	    5. npm install ng2-charts
-	    6. npm install bootstrap
-	    7. npm install ng2-charts@v3.0.0-rc.3 (because of versions of project and versions of ng2-chrats)
+	    2. npm install angular-notifier <br/>
+	    3. npm install ng-image-slider --save <br/>
+	    4. npm install chart.js <br/>
+	    5. npm install ng2-charts <br/>
+	    6. npm install bootstrap <br/>
+	    7. npm install ng2-charts@v3.0.0-rc.3 (because of versions of project and versions of ng2-chrats) <br/>
